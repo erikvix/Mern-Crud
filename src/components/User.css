@@ -1,0 +1,51 @@
+.user-container {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-right: 1rem;
+  line-height: 0.5rem;
+}
+.icons {
+  color: white;
+}
+#bell {
+  width: 1.5rem;
+  height: auto;
+}
+#arrow {
+  width: 2.2rem;
+  height: auto;
+}
+#user {
+  width: 3.2rem;
+  height: auto;
+}
+.paragraph {
+  color: #94a3b8;
+}
+#bell,
+#arrow {
+  cursor: pointer;
+}
+.paragraph {
+  color: #94a3b8;
+}
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 3rem;
+}
+.icons {
+  color: white;
+}
+#bell {
+}
+#user {
+  width: 3.8rem;
+}
+.paragraph {
+  color: #94a3b8;
+}
