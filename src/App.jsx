@@ -2,12 +2,16 @@ import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createServer } from "miragejs"
 
-import axios from "axios";
+let server = createServer()
+server.get("/api/users", { users: [{ id: 1, name: "Bob" }] })
+
 import api from "./api/api";
 
 function App() {
+  const [users, setUsers] = useState([]); 
   useEffect(() => {
     api.get("api").then((res) => {
       console.log(res);
