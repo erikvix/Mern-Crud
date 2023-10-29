@@ -3,21 +3,12 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { createServer } from "miragejs"
+import { createServer } from "miragejs";
 
-let server = createServer()
-server.get("/api/users", { users: [{ id: 1, name: "Bob" }] })
-
-import api from "./api/api";
+let server = createServer();
+server.get("/api/users", { users: [{ id: 1, name: "Bob" }] });
 
 function App() {
-  const [users, setUsers] = useState([]); 
-  useEffect(() => {
-    api.get("api").then((res) => {
-      console.log(res);
-    });
-  }, []);
-
   return (
     <>
       <div className="app-container">
