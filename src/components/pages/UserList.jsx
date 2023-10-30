@@ -2,6 +2,7 @@ import React from "react";
 import "./UserList.css";
 import { useState, useEffect } from "react";
 import Button from "../Button";
+import Input from "../Input";
 
 const UserList = () => {
   const host = "http://localhost:5000/api";
@@ -35,7 +36,7 @@ const UserList = () => {
         <a href="#">
           <Button text="Add User" pathName={"dashboard"}></Button>
         </a>
-        <input className="input" type="text" placeholder="Search..." />
+        <Input type="text" placeholder="Search..."></Input>
       </div>
       {users.length && (
         <table className="table">
