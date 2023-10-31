@@ -1,12 +1,7 @@
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
+import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { createServer } from "miragejs";
-
-let server = createServer();
-server.get("/api/users", { users: [{ id: 1, name: "Bob" }] });
 
 function App() {
   return (

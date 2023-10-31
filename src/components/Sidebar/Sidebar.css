@@ -29,3 +29,9 @@ span {
   align-items: center;
   margin: 2rem 0;
 }
+
+.mikaelTest {
+  body {
+    background-color: red;
+  }
+}
