@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* margin-left: 1rem; */
+  margin-left: 1rem;
 }
 .widget-dashboard,
 .widget-users {
@@ -11,6 +11,9 @@
   align-items: center;
   gap: 0.5rem;
   transition: ease all 0.3s;
+}
+.activeLink {
+  background-color: blue;
 }
 .widget-box {
   display: flex;

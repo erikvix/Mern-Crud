@@ -1,6 +1,6 @@
 import Logo from "@/components/Logo";
-import Widget from "@/components/Widget";
-import styles from '@/components/Sidebar/Sidebar.css';
+import NavLink from "@/components/NavLink";
+import styles from "@/components/Sidebar/Sidebar.css";
 
 const Sidebar = () => (
   <aside className={styles.mikaelTest}>
@@ -11,7 +11,7 @@ const Sidebar = () => (
       </p>
     </div>
     <div className="tt">
-      <Widget />
+      <NavLink />
     </div>
   </aside>
 );
