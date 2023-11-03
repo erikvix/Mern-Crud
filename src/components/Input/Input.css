@@ -10,3 +10,16 @@
   padding: 1rem;
   color: #94a3b8;
 }
+.button {
+  position: absolute;
+  aspect-ratio: 1;
+  height: 80%;
+  right: 3%;
+  top: 10%;
+  font-size: 0.8rem;
+}
+.wrapper {
+  width: max-content;
+  position: relative;
+  max-width: 100%;
+}
