@@ -11,7 +11,7 @@ function App() {
           <Sidebar />
         </div>
         <div className="content">
-          <Header></Header>
+          <Header />
         </div>
         <div className="test">
           <main className="main-content">
