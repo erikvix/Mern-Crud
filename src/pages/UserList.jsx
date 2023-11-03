@@ -15,7 +15,7 @@ const UserList = () => {
       .catch((err) => {
         console.error(err);
       });
-  }    
+  };
 
   const handleDeleteUser = ({ _id }) => {
     fetch(`${userURL}/${_id}`, { method: "DELETE" })
@@ -33,8 +33,10 @@ const UserList = () => {
   return (
     <section className="users-dashboard">
       <div className="dashboard-header">
-        <Button text="Add User" pathName={"dashboard"}></Button>
-        <Input type="text" placeholder="Search..."></Input>
+        <Button text="Add User" pathName="/Add">
+          Add User
+        </Button>
+        <Input type="text" placeholder="Search..." withButton="true"></Input>
       </div>
       {users.length && (
         <table className="table">

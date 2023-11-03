@@ -1,5 +1,8 @@
 import React from "react";
 import "./CreateUser.css";
+import Input from "@/components/Input";
+import Button from "../components/Button";
+import { options } from "@/utils/input-options";
 
 const CreateUser = () => {
   const handleSubmit = (e) => {
@@ -9,17 +12,17 @@ const CreateUser = () => {
   };
   return (
     <>
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <label>FirstName</label>
-          <input type="text" name="firstname" />
-          <label>LasttName</label>
-          <input type="text" name="firstname" />
-          <label>Email</label>
-          <input type="email" name="firstname" />
-          <label>Password</label>
-          <input type="password" name="firstname" />
-          <button type="submit">Enviar Dados</button>
+      <div>
+        <h1>Register</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          {options.map((option, index) => {
+            return (
+              <div className="input-box" key={index}>
+                <Input placeholder={option.placeholder} type={option.type} />
+              </div>
+            );
+          })}
+          <Button>Add User</Button>
         </form>
       </div>
     </>
