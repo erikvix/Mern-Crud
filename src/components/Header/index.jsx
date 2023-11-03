@@ -1,4 +1,4 @@
-import "@/components/Header/Header.css";
+import "./Header.css";
 import User from "@/components/User";
 
 const Header = () => (

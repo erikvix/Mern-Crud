@@ -1,16 +1,16 @@
 import Logo from "@/components/Logo";
 import NavLink from "@/components/NavLink";
-import styles from "@/components/Sidebar/Sidebar.css";
+import "./Sidebar.css";
 
 const Sidebar = () => (
-  <aside className={styles.mikaelTest}>
+  <aside className="sidebar-container">
     <div className="hhh">
       <Logo />
-      <p className="p">
+      <p className="center">
         React <span>App</span>
       </p>
     </div>
-    <div className="tt">
+    <div className="content-sidebar">
       <NavLink />
     </div>
   </aside>
