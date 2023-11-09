@@ -8,11 +8,32 @@ import { mocks } from "@/utils/mocks";
 import "boxicons";
 import "./index.css";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <UserList />,
+      },
+      {
+        path: "/Add",
+        element: <CreateUser />,
+      },
+      {
+        path: "Dashboard",
+        element: <Dasboard />,
+      },
+    ],
+  },
+]);
 createServer({
   routes() {
-    this.get("/api/users", mocks.users)
-    this.passthrough('https://unpkg.com/**/*')
-  }
+    this.urlPrefix = "https://crud-mernstack.netlify.app";
+    this.get("/api/users", mocks.users);
+    this.passthrough("https://unpkg.com/**/*");
+  },
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
