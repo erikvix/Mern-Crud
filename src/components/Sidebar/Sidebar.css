@@ -5,27 +5,18 @@
   border-radius: 0 2rem 2rem 0;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* border: 1px solid red; */
 }
 
 .content-sidebar {
-  margin: 3rem 0;
+  margin: 3rem 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* border: 1px solid red; */
 }
 span {
   color: #61dbfb;
 }
-.test1 {
-  background-color: #61dbfb;
-}
-
 .hhh {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0;
 }
