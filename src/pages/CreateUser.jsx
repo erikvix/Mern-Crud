@@ -5,19 +5,19 @@ import Button from "../components/Button";
 
 let options = [
   {
-    placeholder: "firstname",
+    placeholder: "First Name",
     type: "text",
   },
   {
-    placeholder: "lastname",
+    placeholder: "Last Name",
     type: "text",
   },
   {
-    placeholder: "email",
+    placeholder: "Email",
     type: "email",
   },
   {
-    placeholder: "password",
+    placeholder: "Password",
     type: "password",
   },
 ];

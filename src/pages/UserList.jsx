@@ -4,14 +4,15 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { MdSearch } from "react-icons/md";
 import Icon from "@/components/Icon";
+import Loading from "@/components/Loading";
 
 const UserList = () => {
-  const host = "http://localhost:5000/api";
+  const host = "https://crud-mernstack.netlify.app/api/users";
   const userURL = `${host}/user`;
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
-    return fetch("https://crud-mernstack.netlify.app/api/users")
+    return fetch(`${userURL}`)
       .then((response) => response.json())
       .then((users) => setUsers(users))
       .catch((err) => {
@@ -42,44 +43,48 @@ const UserList = () => {
           <Icon icon={MdSearch} />
         </Input>
       </div>
-      {users.length && (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First-Name</th>
-              <th>Last-Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <td>{user._id}</td>
-                <td>{user.firstname}</td>
-                <td>{user.lastname}</td>
-                <td>{user.email}</td>
-                <td>{user.password}</td>
-                <td>
-                  <box-icon
-                    style={{ cursor: "pointer" }}
-                    color="#94a3b8"
-                    name="edit"
-                  ></box-icon>
-                  <box-icon
-                    style={{ cursor: "pointer" }}
-                    color="#94a3b8"
-                    name="x"
-                    onClick={() => handleDeleteUser(user)}
-                  ></box-icon>
-                </td>
+      <div className="dashboard-content">
+        {users.length > 0 ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First-Name</th>
+                <th>Last-Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user._id}</td>
+                  <td>{user.firstname}</td>
+                  <td>{user.lastname}</td>
+                  <td>{user.email}</td>
+                  <td>{user.password}</td>
+                  <td>
+                    <box-icon
+                      style={{ cursor: "pointer" }}
+                      color="#94a3b8"
+                      name="edit"
+                    ></box-icon>
+                    <box-icon
+                      style={{ cursor: "pointer" }}
+                      color="#94a3b8"
+                      name="x"
+                      onClick={() => handleDeleteUser(user)}
+                    ></box-icon>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <Loading />
+        )}
+      </div>
     </section>
   );
 };
