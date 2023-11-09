@@ -8,26 +8,6 @@ import { mocks } from "@/utils/mocks";
 import "boxicons";
 import "./index.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <UserList />,
-      },
-      {
-        path: "/Add",
-        element: <CreateUser />,
-      },
-      {
-        path: "Dashboard",
-        element: <Dasboard />,
-      },
-    ],
-  },
-]);
 createServer({
   routes() {
     this.urlPrefix = "https://crud-mernstack.netlify.app";
