@@ -2,6 +2,8 @@ import "./UserList.css";
 import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { MdSearch } from "react-icons/md";
+import Icon from "@/components/Icon";
 
 const UserList = () => {
   const host = "http://localhost:5000/api";
@@ -36,7 +38,9 @@ const UserList = () => {
         <Button text="Add User" pathName="/Add">
           Add User
         </Button>
-        <Input type="text" placeholder="Search..." withButton="true"></Input>
+        <Input type="text" placeholder="Search..." withButton="true">
+          <Icon icon={MdSearch} />
+        </Input>
       </div>
       {users.length && (
         <table className="table">

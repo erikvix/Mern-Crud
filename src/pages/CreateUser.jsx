@@ -2,7 +2,25 @@ import React from "react";
 import "./CreateUser.css";
 import Input from "@/components/Input";
 import Button from "../components/Button";
-import { options } from "@/utils/input-options";
+
+let options = [
+  {
+    placeholder: "firstname",
+    type: "text",
+  },
+  {
+    placeholder: "lastname",
+    type: "text",
+  },
+  {
+    placeholder: "email",
+    type: "email",
+  },
+  {
+    placeholder: "password",
+    type: "password",
+  },
+];
 
 const CreateUser = () => {
   const handleSubmit = (e) => {
