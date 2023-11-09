@@ -9,7 +9,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
-    return fetch("http://localhost:5173/api/users")
+    return fetch("https://crud-mernstack.netlify.app/api/users")
       .then((response) => response.json())
       .then((users) => setUsers(users))
       .catch((err) => {
