@@ -7,12 +7,13 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 
 const UserList = () => {
-  const host = "https://crud-mernstack.netlify.app/api/users";
+  const host = "https://crud-mernstack.netlify.app/api";
   const userURL = `${host}/user`;
+  const usersURL = `${host}/users`;
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
-    return fetch(`${userURL}`)
+    return fetch(`${usersURL}`)
       .then((response) => response.json())
       .then((users) => setUsers(users))
       .catch((err) => {
