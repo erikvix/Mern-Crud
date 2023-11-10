@@ -35,7 +35,7 @@ const CreateUser = () => {
     },
   ];
 
-  const handleCreateUser = (e) => {
+  const handleCreateUser = (e, { id }) => {
     e.preventDefault;
     fetch(`/api/users/${id}`, { method: "UPDATE", body: form })
       .then(handleGetUsers)
