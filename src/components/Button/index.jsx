@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "@/components/Button/Button.css";
 
-const Button = ({ children = "default", pathName, className }) => {
+const Button = ({ children = "default", pathName, className, onClick }) => {
   return (
-    <button className={className}>
+    <button onClick={onClick} className={className}>
       <Link className="text" to={pathName}>
         {children}
       </Link>

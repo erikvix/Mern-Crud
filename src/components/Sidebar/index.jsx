@@ -4,7 +4,7 @@ import "./Sidebar.css";
 
 const Sidebar = () => (
   <aside className="sidebar-container">
-    <div className="hhh">
+    <div className="logo-avatar">
       <Logo />
       <p className="center">
         React <span>App</span>
