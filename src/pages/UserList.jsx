@@ -21,8 +21,8 @@ const UserList = () => {
       });
   };
 
-  const handleDeleteUser = ({ _id }) => {
-    fetch(`${usersURL}/${_id}`, { method: "DELETE" })
+  const handleDeleteUser = ({ id }) => {
+    fetch(`${usersURL}/${id}`, { method: "DELETE" })
       .then((response) => response.json())
       .then(handleGetUsers)
       .catch((err) => {
