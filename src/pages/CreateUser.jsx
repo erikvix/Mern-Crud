@@ -47,16 +47,16 @@ const CreateUser = () => {
     <>
       <div>
         <h1>Register</h1>
-        <form className="form" onSubmit={handleCreateUser}>
-          {options.map((option, index) => {
-            return (
-              <div className="input-box" key={index}>
-                <Input placeholder={option.placeholder} type={option.type} />
-              </div>
-            );
-          })}
-          <Button>Add User</Button>
-        </form>
+        {/* <form className="form" onSubmit={handleCreateUser}> */}
+        {options.map((option, index) => {
+          return (
+            <div className="input-box" key={index}>
+              <Input placeholder={option.placeholder} type={option.type} />
+            </div>
+          );
+        })}
+        <Button onClick={handleCreateUser}>Add User</Button>
+        {/* </form> */}
       </div>
     </>
   );
