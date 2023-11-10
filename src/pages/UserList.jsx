@@ -13,7 +13,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
-    return fetch(`${usersURL}`)
+    return fetch(`/api/users`)
       .then((response) => response.json())
       .then((users) => setUsers(users))
       .catch((err) => {
