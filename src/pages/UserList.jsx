@@ -7,9 +7,6 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 
 const UserList = () => {
-  const host = "https://crud-mernstack.netlify.app/api";
-  const userURL = `${host}/user`;
-  const usersURL = `${host}/users`;
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
@@ -22,7 +19,7 @@ const UserList = () => {
   };
 
   const handleDeleteUser = ({ id }) => {
-    fetch(`${usersURL}/${id}`, { method: "DELETE" })
+    fetch(`/api/users/${id}`, { method: "DELETE" })
       .then(handleGetUsers)
       .catch((err) => {
         console.error(err);

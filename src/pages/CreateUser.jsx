@@ -37,7 +37,7 @@ const CreateUser = () => {
 
   const handleCreateUser = (e) => {
     e.preventDefault;
-    fetch(`${usersURL}/${id}`, { method: "UPDATE", body: form })
+    fetch(`/api/users/${id}`, { method: "UPDATE", body: form })
       .then(handleGetUsers)
       .catch((err) => {
         console.error(err);
