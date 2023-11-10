@@ -12,6 +12,7 @@ createServer({
   routes() {
     this.urlPrefix = "https://crud-mernstack.netlify.app";
     this.get("/api/users", mocks.users);
+    this.delete("/api/users", mocks.users);
     this.passthrough("https://unpkg.com/**/*");
   },
 });
