@@ -46,6 +46,17 @@ createServer({
 
       return schema.users.find(id).destroy();
     });
+    this.post("/api/user", (schema, request) => {
+      let attrs = JSON.parse(request.requestBody);
+
+      return schema.user.create(attrs);
+    });
+    this.put("/api/user/:id", (schema, request) => {
+      let attrs = JSON.parse(request.requestBody);
+      let id = request.params.id;
+
+      return schema.user.find(id).update(attrs);
+    });
     this.passthrough("https://unpkg.com/**/*");
   },
 });
