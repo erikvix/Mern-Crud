@@ -28,7 +28,6 @@ const UserList = () => {
         console.error(err);
       });
   };
-
   useEffect(() => {
     handleGetUsers();
   }, []);
