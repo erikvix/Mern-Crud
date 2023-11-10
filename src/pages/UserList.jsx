@@ -15,7 +15,7 @@ const UserList = () => {
   const handleGetUsers = () => {
     return fetch(`/api/users`)
       .then((response) => response.json())
-      .then((users) => setUsers(users))
+      .then(({ users }) => setUsers(users))
       .catch((err) => {
         console.error(err);
       });
