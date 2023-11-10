@@ -37,21 +37,20 @@ createServer({
   },
 
   routes() {
-    this.urlPrefix = "https://crud-mernstack.netlify.app";
-    this.get("/api/users", (schema) => {
+    this.get("http://localhost:5173/api/users", (schema) => {
       return schema.users.all();
     });
-    this.delete("/api/users/:id", (schema, request) => {
+    this.delete("http://localhost:5173/api/users/:id", (schema, request) => {
       let id = request.params.id;
 
       return schema.users.find(id).destroy();
     });
-    this.post("/api/user", (schema, request) => {
+    this.post("http://localhost:5173/api/user", (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
 
       return schema.user.create(attrs);
     });
-    this.put("/api/user/:id", (schema, request) => {
+    this.put("http://localhost:5173/api/user/:id", (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
       let id = request.params.id;
 

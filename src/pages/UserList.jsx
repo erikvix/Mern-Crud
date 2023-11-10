@@ -10,7 +10,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = () => {
-    return fetch(`/api/users`)
+    return fetch(`http://localhost:5173/api/users`)
       .then((response) => response.json())
       .then(({ users }) => setUsers(users))
       .catch((err) => {
@@ -19,7 +19,7 @@ const UserList = () => {
   };
 
   const handleDeleteUser = ({ id }) => {
-    fetch(`/api/users/${id}`, { method: "DELETE" })
+    fetch(`http://localhost:5173/api/users`, { method: "DELETE" })
       .then(handleGetUsers)
       .catch((err) => {
         console.error(err);
