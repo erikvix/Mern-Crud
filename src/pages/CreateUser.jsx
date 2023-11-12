@@ -5,6 +5,7 @@ import Button from "../components/Button";
 
 const CreateUser = () => {
   const [form, setForm] = useState({
+    id: 4,
     firstname: "",
     lastname: "",
     email: "",
@@ -46,7 +47,11 @@ const CreateUser = () => {
 
   const handleCreateUser = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5173/api/user`, { method: "POST", body: form })
+    fetch(`http://localhost:5173/api/user`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: form,
+    })
       .then(handleGetUsers)
       .catch((err) => {
         console.error(err);
@@ -56,18 +61,21 @@ const CreateUser = () => {
     <>
       <div>
         <h1>Register</h1>
-        <div className="form" onSubmit={handleCreateUser}>
+        <div className="form">
           {options.map((option, index) => {
             return (
               <div className="input-box" key={index}>
                 <Input
                   placeholder={option.placeholder}
                   type={option.type}
-                  value={option.value}
+                  value={
+                    form[option.placeholder.toLowerCase().replace(/\s+/g, "")]
+                  }
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      [option.placeholder.toLowerCase()]: e.target.value,
+                      [option.placeholder.toLowerCase().replace(/\s+/g, "")]:
+                        e.target.value,
                     })
                   }
                 />

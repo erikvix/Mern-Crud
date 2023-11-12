@@ -14,7 +14,7 @@ const Input = ({
       className="input"
       type={type}
       placeholder={placeholder}
-      value={value}
+      name={value}
       onChange={onChange}
     />
     {withButton && <Button className="button">{children}</Button>}

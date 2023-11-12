@@ -3,7 +3,7 @@ import NavLink from "@/components/NavLink";
 import "./Sidebar.css";
 
 const Sidebar = () => (
-  <aside className="sidebar-container">
+  <aside className="siderbar-container">
     <div className="logo-avatar">
       <Logo />
       <p className="center">
