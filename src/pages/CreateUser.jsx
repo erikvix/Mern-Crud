@@ -34,11 +34,11 @@ const CreateUser = () => {
       value: form.password,
     },
   ];
+  
 
   const handleCreateUser = (e) => {
     e.preventDefault;
-    fetch(`/api/users`, { method: "UPDATE", body: form })
-      .then(handleGetUsers)
+    fetch(`/api/user`, { method: "POST", body: form })
       .catch((err) => {
         console.error(err);
       });
