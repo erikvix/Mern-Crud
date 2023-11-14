@@ -47,8 +47,9 @@ createServer({
       return schema.users.find(id).destroy();
     });
     this.post("/api/user", (schema, request) => {
+      console.log('request.requestBody -> ',request.requestBody);
       let attrs = JSON.parse(request.requestBody);
-
+      console.log('attrs -> ', attrs);
       return schema.user.create(attrs);
     });
     this.put("/api/user/:id", (schema, request) => {
