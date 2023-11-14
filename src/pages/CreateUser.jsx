@@ -11,24 +11,28 @@ const CreateUser = () => {
     email: "",
     password: "",
   });
-
-  let options = [
+  
+  const options = [
     {
+      onChange: (e) => setForm({ ...form, firstname: e.target.value }),
       placeholder: "First Name",
       type: "text",
       value: form.firstname,
     },
     {
+      onChange: (e) => setForm({ ...form, lastname: e.target.value }),
       placeholder: "Last Name",
       type: "text",
       value: form.lastname,
     },
     {
+      onChange: () => (e) => setForm({ ...form, email: e.target.value }),
       placeholder: "Email",
       type: "email",
       value: form.email,
     },
     {
+      onChange: () => (e) => setForm({ ...form, password: e.target.value }),
       placeholder: "Password",
       type: "password",
       value: form.password,
@@ -48,13 +52,11 @@ const CreateUser = () => {
       <div>
         <h1>Register</h1>
         <div className="form" onSubmit={handleCreateUser}>
-          {options.map((option, index) => {
-            return (
+          {options.map((option, index) => (
               <div className="input-box" key={index}>
-                <Input placeholder={option.placeholder} type={option.type} />
+                <input type={option.type} placeholder={option.placeholder} onChange={option.onChange} />
               </div>
-            );
-          })}
+            ))}
           <Button onClick={handleCreateUser}>Add User</Button>
         </div>
       </div>
