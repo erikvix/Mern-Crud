@@ -47,7 +47,7 @@ const CreateUser = () => {
   const handleCreateUser = (e) => {
     e.preventDefault;
     console.log(form);
-    fetch(`/api/user`, { method: "POST", body: form })
+    fetch(`/api/user`, { method: "POST", body: JSON.stringify(form) })
       .catch((err) => {
         console.error(err);
       });
