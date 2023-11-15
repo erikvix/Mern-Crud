@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./CreateUser.css";
 import Button from "@/components/Button";
+import Input from "../components/Input";
 
 const CreateUser = () => {
   const [form, setForm] = useState({
@@ -9,33 +10,33 @@ const CreateUser = () => {
     email: "",
     password: "",
   });
-  
+
   const fields = [
     {
       onChange: (e) => setForm({ ...form, firstname: e.target.value }),
       placeholder: "First Name",
-      id: 'first-name',
+      id: "first-name",
       type: "text",
       value: form.firstname,
     },
     {
       onChange: (e) => setForm({ ...form, lastname: e.target.value }),
       placeholder: "Last Name",
-      id: 'last-name',
+      id: "last-name",
       type: "text",
       value: form.lastname,
     },
     {
       onChange: (e) => setForm({ ...form, email: e.target.value }),
       placeholder: "Email",
-      id: 'user-email',
+      id: "user-email",
       type: "email",
       value: form.email,
     },
     {
       onChange: (e) => setForm({ ...form, password: e.target.value }),
       placeholder: "Password",
-      id: 'user-password',
+      id: "user-password",
       type: "password",
       value: form.password,
     },
@@ -43,28 +44,24 @@ const CreateUser = () => {
 
   const handleCreateUser = (e) => {
     e.preventDefault();
-    fetch(
-      `/api/user`, 
-      { 
-        method: "POST",
-        body: JSON.stringify(form)
-      }
-    )
-    .catch((err) => err);
+    fetch(`/api/user`, {
+      method: "POST",
+      body: JSON.stringify(form),
+    }).catch((err) => err);
   };
 
   return (
     <div>
       <h1>Register</h1>
       <form className="form" onSubmit={handleCreateUser}>
-        {fields.map(field => (
+        {fields.map((field) => (
           <div className="input-box" key={field.id}>
-            <input 
+            <Input
               id={field.id}
               type={field.type}
               value={field.value}
               placeholder={field.placeholder}
-              onChange={field.onChange} 
+              onChange={field.onChange}
             />
           </div>
         ))}

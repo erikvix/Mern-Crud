@@ -18,9 +18,15 @@ const initMirage = () =>
       this.delete("/api/users/:id", (schema, request) =>
         schema.users.find(request.params.id).destroy()
       );
-      this.post("/api/user", (schema, request) =>
-        schema.user.create("user", JSON.parse(request.requestBody))
-      );
+      this.post("/api/user", (schema, request) => {
+        const body = JSON.parse(request.requestBody);
+        const payload = {
+          id: schema.users.all().length + 1,
+          ...body,
+        };
+        schema.users.create(payload);
+        return payload;
+      });
       this.put("/api/user/:id", (schema, request) =>
         schema.user
           .find(request.params.id)
