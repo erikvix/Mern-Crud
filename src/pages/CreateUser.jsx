@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CreateUser.css";
-import Input from "@/components/Input";
-import Button from "../components/Button";
-import { string } from "prop-types";
+import Button from "@/components/Button";
 
 const CreateUser = () => {
   const [form, setForm] = useState({
@@ -12,7 +10,7 @@ const CreateUser = () => {
     password: "",
   });
   
-  const options = [
+  const fields = [
     {
       onChange: (e) => setForm({ ...form, firstname: e.target.value }),
       placeholder: "First Name",
@@ -42,30 +40,37 @@ const CreateUser = () => {
       value: form.password,
     },
   ];
-  
 
   const handleCreateUser = (e) => {
-    e.preventDefault;
-    console.log(form);
-    fetch(`/api/user`, { method: "POST", body: JSON.stringify(form) })
-      .catch((err) => {
-        console.error(err);
-      });
+    e.preventDefault();
+    fetch(
+      `/api/user`, 
+      { 
+        method: "POST",
+        body: JSON.stringify(form)
+      }
+    )
+    .catch((err) => err);
   };
+
   return (
-    <>
-      <div>
-        <h1>Register</h1>
-        <form className="form" onSubmit={handleCreateUser}>
-          {options.map((option, index) => (
-              <div className="input-box" key={index}>
-                <input id={option.id} type={option.type} value={option.value} placeholder={option.placeholder}  onChange={option.onChange} />
-              </div>
-            ))}
-          <Button onClick={handleCreateUser}>Add User</Button>
-        </form>
-      </div>
-    </>
+    <div>
+      <h1>Register</h1>
+      <form className="form" onSubmit={handleCreateUser}>
+        {fields.map(field => (
+          <div className="input-box" key={field.id}>
+            <input 
+              id={field.id}
+              type={field.type}
+              value={field.value}
+              placeholder={field.placeholder}
+              onChange={field.onChange} 
+            />
+          </div>
+        ))}
+        <Button onClick={handleCreateUser}>Add User</Button>
+      </form>
+    </div>
   );
 };
 
