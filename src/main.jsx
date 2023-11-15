@@ -46,12 +46,7 @@ createServer({
 
       return schema.users.find(id).destroy();
     });
-    this.post("/api/user", (schema, request) => {
-      console.log('request.requestBody -> ',request.requestBody);
-      let attrs = JSON.parse(request.requestBody);
-      console.log('attrs -> ', attrs);
-      return schema.user.create(attrs);
-    });
+    this.post("/api/user", (schema, request) => schema.user.create("user", JSON.parse(request.requestBody)));
     this.put("/api/user/:id", (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
       let id = request.params.id;
