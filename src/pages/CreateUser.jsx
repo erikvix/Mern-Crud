@@ -48,6 +48,12 @@ const CreateUser = () => {
       method: "POST",
       body: JSON.stringify(form),
     }).catch((err) => err);
+    setForm({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (

@@ -5,9 +5,12 @@ import Input from "@/components/Input";
 import { MdSearch } from "react-icons/md";
 import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
+import Modal from "../components/Modal";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
 
   const handleGetUsers = () => {
     return fetch(`/api/users`)
@@ -18,12 +21,21 @@ const UserList = () => {
       });
   };
 
-  const handleDeleteUser = ({ id }) => {
-    fetch(`/api/users/${id}`, { method: "DELETE" })
-      .then(handleGetUsers)
-      .catch((err) => {
-        console.error(err);
-      });
+  const handleDeleteUser = () => {
+    if (userToDelete) {
+      fetch(`/api/users/${userToDelete.id}`, { method: "DELETE" })
+        .then(() => {
+          setIsModalOpen(false);
+          handleGetUsers();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+  const handleOpenModal = (user) => {
+    setUserToDelete(user);
+    setIsModalOpen(true);
   };
   useEffect(() => {
     handleGetUsers();
@@ -70,12 +82,29 @@ const UserList = () => {
                       style={{ cursor: "pointer" }}
                       color="#94a3b8"
                       name="x"
-                      onClick={() => handleDeleteUser(user)}
+                      onClick={() => handleOpenModal(user)}
                     ></box-icon>
                   </td>
                 </tr>
               ))}
             </tbody>
+            {isModalOpen && (
+              <>
+                <Modal isOpen={true}>
+                  <h3>Are you sure you want to delete the user?</h3>
+                  <div
+                    style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
+                  >
+                    <Button onClick={() => handleDeleteUser(user)}>
+                      Delete
+                    </Button>
+                    <Button onClick={() => setIsModalOpen(false)}>
+                      Cancel
+                    </Button>
+                  </div>
+                </Modal>
+              </>
+            )}
           </table>
         ) : (
           <Loading />
