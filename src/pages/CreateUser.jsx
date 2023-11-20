@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./CreateUser.css";
 import Button from "@/components/Button";
-import Input from "../components/Input";
+import Input from "@/components/Input";
+import Alert from "@/components/Alert";
 
 const CreateUser = () => {
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [form, setForm] = useState({
     firstname: "",
     lastname: "",
@@ -48,6 +50,10 @@ const CreateUser = () => {
       method: "POST",
       body: JSON.stringify(form),
     }).catch((err) => err);
+    setIsAlertOpen(true);
+    setTimeout(() => {
+      setIsAlertOpen(false);
+    }, 2000);
     setForm({
       firstname: "",
       lastname: "",
@@ -58,6 +64,7 @@ const CreateUser = () => {
 
   return (
     <div>
+      {isAlertOpen && <Alert isOpen={true}>User Created!</Alert>}
       <h1>Register</h1>
       <form className="form" onSubmit={handleCreateUser}>
         {fields.map((field) => (

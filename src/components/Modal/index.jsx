@@ -1,6 +1,4 @@
-import React, { Children, useState } from "react";
 import "./Modal.css";
-import { set } from "mongoose";
 
 export default function Modal({ isOpen, children }) {
   if (!isOpen) {

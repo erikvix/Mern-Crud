@@ -5,7 +5,7 @@ import Input from "@/components/Input";
 import { MdSearch } from "react-icons/md";
 import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
-import Modal from "../components/Modal";
+import Modal from "@/components/Modal";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
