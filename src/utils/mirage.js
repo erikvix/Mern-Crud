@@ -1,5 +1,6 @@
 import { createServer, Model } from "miragejs";
 import { mocks } from "@/utils/mocks";
+import { nanoid } from "nanoid";
 
 const initMirage = () =>
   createServer({
@@ -21,7 +22,8 @@ const initMirage = () =>
       this.post("/api/user", (schema, request) => {
         const body = JSON.parse(request.requestBody);
         const payload = {
-          id: schema.users.all().length + 1,
+          id: nanoid(),
+
           ...body,
         };
         schema.users.create(payload);

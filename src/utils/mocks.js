@@ -1,36 +1,39 @@
+import { nanoid } from "nanoid";
+import { faker } from "@faker-js/faker";
+
 const mocks = {
   users: [
     {
-      id: 1,
-      firstname: "Mikael",
-      lastname: "Hadler",
-      email: "mikaelhadler@gmail.com",
+      id: nanoid(),
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
+      email: faker.internet.email(),
       password: "123",
     },
   ],
   seeds: (server) => {
     server.create("user", {
-      id: 1,
-      firstname: "Mikael",
-      lastname: "Hadler",
-      email: "mikaelhadler@gmail.com",
+      id: nanoid(),
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
+      email: faker.internet.email(),
       password: "123",
     });
     server.create("user", {
-      id: 2,
-      firstname: "Junior",
-      lastname: "Silva",
-      email: "juniorislva@gmail.com",
+      id: nanoid(),
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
+      email: faker.internet.email(),
       password: "12344",
     });
     server.create("user", {
-      id: 3,
-      firstname: "Pedro",
-      lastname: "Felix",
-      email: "pedrofelix@gmail.com",
+      id: nanoid(),
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
+      email: faker.internet.email(),
       password: "12321",
     });
-  }
+  },
 };
 
 export { mocks };

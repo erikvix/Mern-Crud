@@ -6,12 +6,13 @@ import Alert from "@/components/Alert";
 
 const CreateUser = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     firstname: "",
     lastname: "",
     email: "",
     password: "",
-  });
+  };
+  const [form, setForm] = useState(initialForm);
 
   const fields = [
     {
@@ -54,17 +55,11 @@ const CreateUser = () => {
     setTimeout(() => {
       setIsAlertOpen(false);
     }, 2000);
-    setForm({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-    });
+    setForm(initialForm);
   };
 
   return (
     <div>
-      {isAlertOpen && <Alert isOpen={true}>User Created!</Alert>}
       <h1>Register</h1>
       <form className="form" onSubmit={handleCreateUser}>
         {fields.map((field) => (
@@ -80,6 +75,7 @@ const CreateUser = () => {
         ))}
         <Button onClick={handleCreateUser}>Add User</Button>
       </form>
+      <Alert isOpen={isAlertOpen}>User Created!</Alert>
     </div>
   );
 };

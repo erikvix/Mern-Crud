@@ -88,28 +88,18 @@ const UserList = () => {
                 </tr>
               ))}
             </tbody>
-            {isModalOpen && (
-              <>
-                <Modal isOpen={true}>
-                  <h3>Are you sure you want to delete the user?</h3>
-                  <div
-                    style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
-                  >
-                    <Button onClick={() => handleDeleteUser(user)}>
-                      Delete
-                    </Button>
-                    <Button onClick={() => setIsModalOpen(false)}>
-                      Cancel
-                    </Button>
-                  </div>
-                </Modal>
-              </>
-            )}
           </table>
         ) : (
           <Loading />
         )}
       </div>
+      <Modal isOpen={isModalOpen}>
+        <h3>Are you sure you want to delete the user?</h3>
+        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <Button onClick={() => handleDeleteUser(user)}>Delete</Button>
+          <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
+        </div>
+      </Modal>
     </section>
   );
 };
