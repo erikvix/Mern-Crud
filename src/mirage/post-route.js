@@ -1,0 +1,1 @@
+this.post("/api/user", (schema, request) => JSON.parse(request.requestBody));
