@@ -1,14 +1,31 @@
 import { createServer, Model } from "miragejs";
-import { mocks } from "@/utils/mocks";
 import { nanoid } from "nanoid";
+import { faker } from "@faker-js/faker";
 
 const initMirage = () =>
   createServer({
     models: {
       user: Model,
     },
-    seeds(server) {
-      mocks.seeds(server);
+    seeds: (server) => {
+      server.create("user", {
+        id: nanoid(),
+        firstname: faker.person.firstName(),
+        lastname: faker.person.lastName(),
+        email: faker.internet.email()
+      });
+      server.create("user", {
+        id: nanoid(),
+        firstname: faker.person.firstName(),
+        lastname: faker.person.lastName(),
+        email: faker.internet.email()
+      });
+      server.create("user", {
+        id: nanoid(),
+        firstname: faker.person.firstName(),
+        lastname: faker.person.lastName(),
+        email: faker.internet.email()
+      });
     },
     routes() {
       this.urlPrefix =

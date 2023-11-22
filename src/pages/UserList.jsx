@@ -57,10 +57,9 @@ const UserList = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>First-Name</th>
-                <th>Last-Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -71,7 +70,6 @@ const UserList = () => {
                   <td>{user.firstname}</td>
                   <td>{user.lastname}</td>
                   <td>{user.email}</td>
-                  <td>{user.password}</td>
                   <td>
                     <box-icon
                       style={{ cursor: "pointer" }}
