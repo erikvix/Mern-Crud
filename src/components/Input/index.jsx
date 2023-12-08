@@ -9,6 +9,7 @@ const Input = ({
   onChange,
   children,
   withButton = false,
+  onClick,
 }) => (
   <div className="wrapper">
     <input
@@ -19,7 +20,11 @@ const Input = ({
       value={value}
       onChange={onChange}
     />
-    {withButton && <Button className="button">{children}</Button>}
+    {withButton && (
+      <Button onClick={onClick} className="button">
+        {children}
+      </Button>
+    )}
   </div>
 );
 

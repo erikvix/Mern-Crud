@@ -6,12 +6,32 @@ import { MdSearch } from "react-icons/md";
 import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 import Modal from "@/components/Modal";
+import { useDebounce } from "use-debounce";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [debouncedValue] = useDebounce(inputValue, 500);
 
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+    console.log(debouncedValue);
+  };
+
+  const handleSearchUser = () => {
+    const filteredUsers = users.filter((user) =>
+      user.email.includes(inputValue)
+    );
+    if (filteredUsers === "") {
+      handleGetUsers();
+    }
+    console.log(handleGetUsers());
+    console.log(filteredUsers);
+    setUsers(filteredUsers);
+  };
   const handleGetUsers = () => {
     return fetch(`/api/users`)
       .then((response) => response.json())
@@ -33,6 +53,7 @@ const UserList = () => {
         });
     }
   };
+
   const handleOpenModal = (user) => {
     setUserToDelete(user);
     setIsModalOpen(true);
@@ -47,7 +68,13 @@ const UserList = () => {
         <Button text="Add User" pathName="/Add">
           Add User
         </Button>
-        <Input type="text" placeholder="Search..." withButton="true">
+        <Input
+          type="text"
+          onChange={handleInputChange}
+          placeholder="Search..."
+          withButton="true"
+          onClick={handleSearchUser}
+        >
           <Icon icon={MdSearch} />
         </Input>
       </div>
