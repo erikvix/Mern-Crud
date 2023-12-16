@@ -15,7 +15,8 @@
   transform: translate(-50%, -50%);
   background-color: #0f172a;
   width: 500px;
-  height: 200px;
+  height: auto;
+  padding: 2rem;
   border-radius: 2rem;
   display: flex;
   justify-content: center;

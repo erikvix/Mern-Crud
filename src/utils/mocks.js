@@ -47,34 +47,6 @@ const mocks = {
       email: faker.internet.email(),
       password: "12321",
     });
-    server.create("user", {
-      id: nanoid(),
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
-      email: faker.internet.email(),
-      password: "12321",
-    });
-    server.create("user", {
-      id: nanoid(),
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
-      email: faker.internet.email(),
-      password: "12321",
-    });
-    server.create("user", {
-      id: nanoid(),
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
-      email: faker.internet.email(),
-      password: "12321",
-    });
-    server.create("user", {
-      id: nanoid(),
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
-      email: faker.internet.email(),
-      password: "12321",
-    });
   },
 };
 

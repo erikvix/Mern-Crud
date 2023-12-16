@@ -29,11 +29,10 @@ const initMirage = () =>
         schema.users.create(payload);
         return payload;
       });
-      this.put("/api/user/:id", (schema, request) =>
-        schema.user
-          .find(request.params.id)
-          .update(JSON.parse(request.requestBody))
-      );
+      this.put("/api/user/:id", (schema, request) => {
+        const body = JSON.parse(request.requestBody);
+        schema.users.find(request.params.id).update(body);
+      });
       this.passthrough("https://unpkg.com/**/*");
     },
   });
