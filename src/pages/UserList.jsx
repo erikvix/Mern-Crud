@@ -1,3 +1,4 @@
+import Alert from "@/components/Alert";
 import "./UserList.css";
 import { useState, useEffect } from "react";
 import Button from "@/components/Button";
@@ -16,7 +17,9 @@ const UserList = () => {
   const [userToDelete, setUserToDelete] = useState(null);
   const [userToEdit, setUserToEdit] = useState(null);
   const [inputValue, setInputValue] = useState("");
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [debouncedValue] = useDebounce(inputValue, 500);
+
   const initialForm = {
     firstname: "",
     lastname: "",
@@ -89,12 +92,16 @@ const UserList = () => {
         body: JSON.stringify(form),
       })
         .then(() => {
-          setIsModalOpen(false);
           handleGetUsers();
         })
         .catch((err) => {
           console.error(err);
         });
+      setIsModalOpen(false);
+      setIsAlertOpen(true);
+      setTimeout(() => {
+        setIsAlertOpen(false);
+      }, 2000);
     } else {
       console.log("sem usuario");
     }
@@ -189,15 +196,27 @@ const UserList = () => {
       <Modal isOpen={isModalOpen}>
         <h3>Are you sure you want to delete the user?</h3>
         <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-          <Button onClick={() => handleDeleteUser(user)}>Delete</Button>
-          <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
+          <Button
+            className={"button-ok"}
+            textClass={"textNormal"}
+            onClick={() => handleDeleteUser(user)}
+          >
+            Delete
+          </Button>
+          <Button
+            className={"button-cancel"}
+            textClass={"textNormal"}
+            onClick={() => setIsModalOpen(false)}
+          >
+            Cancel
+          </Button>
         </div>
       </Modal>
       <EditModal isOpen={isEditModalOpen}>
         <h3>Edit an user</h3>
         <form
           style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-          onSubmit={handleEditUser(user)}
+          onSubmit={handleEditUser}
         >
           {fields.map((field) => (
             <div className="input-box" key={field.id}>
@@ -208,7 +227,6 @@ const UserList = () => {
                 placeholder={field.placeholder}
                 onChange={field.onChange}
               />
-              <Button onClick={handleEditUser(user)}>Add User</Button>
             </div>
           ))}
         </form>
@@ -216,7 +234,7 @@ const UserList = () => {
           <Button
             className={"button-ok"}
             textClass={"textNormal"}
-            onClick={() => handleEditUser(user)}
+            onClick={() => handleEditUser()}
           >
             Edit
           </Button>
@@ -229,6 +247,7 @@ const UserList = () => {
           </Button>
         </div>
       </EditModal>
+      <Alert isOpen={isAlertOpen}>User edited!</Alert>
     </section>
   );
 };
