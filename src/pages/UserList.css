@@ -34,7 +34,8 @@ th {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-width: 793px;
+  max-width: 1440px;
+  height: auto;
 }
 .dashboard-content {
   display: flex;
