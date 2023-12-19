@@ -3,6 +3,7 @@ import App from "@/App.jsx";
 import UserList from "@/pages/UserList.jsx";
 import Dasboard from "@/pages/Dasboard.jsx";
 import CreateUser from "@/pages/CreateUser.jsx";
+import Settings from "../pages/Settings";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "Dashboard",
         element: <Dasboard />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
       },
     ],
   },
