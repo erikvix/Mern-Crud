@@ -12,6 +12,7 @@ import { useDebounce } from "use-debounce";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setEditIsModalOpen] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
@@ -62,20 +63,8 @@ const UserList = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-    console.log(debouncedValue);
   };
 
-  const handleSearchUser = () => {
-    const filteredUsers = users.filter((user) =>
-      user.email.includes(inputValue)
-    );
-    if (filteredUsers === "") {
-      handleGetUsers();
-    }
-    console.log(handleGetUsers());
-    console.log(filteredUsers);
-    setUsers(filteredUsers);
-  };
   const handleGetUsers = () => {
     return fetch(`/api/users`)
       .then((response) => response.json())
@@ -143,7 +132,7 @@ const UserList = () => {
           onChange={handleInputChange}
           placeholder="Search email..."
           withButton="true"
-          onClick={handleSearchUser}
+          onClick={() => setSearch(inputValue)}
         >
           <Icon icon={MdSearch} />
         </Input>
@@ -162,31 +151,37 @@ const UserList = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
-                <tr key={index}>
-                  <td>{user.id}</td>
-                  <td>{user.firstname}</td>
-                  <td>{user.lastname}</td>
-                  <td>{user.email}</td>
-                  <td>{user.password}</td>
-                  <td>
-                    <box-icon
-                      style={{ cursor: "pointer" }}
-                      color="#94a3b8"
-                      name="edit"
-                      onClick={() => {
-                        handleOpenModaltest(user);
-                      }}
-                    ></box-icon>
-                    <box-icon
-                      style={{ cursor: "pointer" }}
-                      color="#94a3b8"
-                      name="x"
-                      onClick={() => handleOpenModal(user)}
-                    ></box-icon>
-                  </td>
-                </tr>
-              ))}
+              {users
+                .filter((user) => {
+                  return search.toLowerCase() === ""
+                    ? user
+                    : user.email.toLowerCase().includes(search);
+                })
+                .map((user, index) => (
+                  <tr key={index}>
+                    <td>{user.id}</td>
+                    <td>{user.firstname}</td>
+                    <td>{user.lastname}</td>
+                    <td>{user.email}</td>
+                    <td>{user.password}</td>
+                    <td>
+                      <box-icon
+                        style={{ cursor: "pointer" }}
+                        color="#94a3b8"
+                        name="edit"
+                        onClick={() => {
+                          handleOpenModaltest(user);
+                        }}
+                      ></box-icon>
+                      <box-icon
+                        style={{ cursor: "pointer" }}
+                        color="#94a3b8"
+                        name="x"
+                        onClick={() => handleOpenModal(user)}
+                      ></box-icon>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         ) : (
