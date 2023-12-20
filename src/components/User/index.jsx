@@ -26,7 +26,7 @@ const User = () => {
             <li>
               <button onClick={handleOpenModal} className="item">
                 <MdInfoOutline size={24} />
-                About this project!
+                About this project
               </button>
             </li>
             <li>
@@ -65,6 +65,22 @@ const User = () => {
       </i>
       {isModalOpen && (
         <Modal isOpen={true}>
+          <h1>Crud MERN-Stack</h1>
+          <h3>o aplicativo exerce as seguintes funções:</h3>
+          <ul className="modal-box">
+            <li>
+              <p>Inserção de usuário</p>
+            </li>
+            <li>
+              <p>Deleção de usuário</p>
+            </li>
+            <li>
+              <p>Edição de usuário</p>
+            </li>
+            <li>
+              <p>Pesquisa de usuário</p>
+            </li>
+          </ul>
           <Button onClick={() => setIsModalOpen(false)}>X</Button>
         </Modal>
       )}

@@ -45,7 +45,7 @@
 .paragraph {
   color: #94a3b8;
 }
-.dropdown{
+.dropdown {
   position: absolute;
   top: 90px;
   right: 450px;
@@ -53,7 +53,7 @@
   height: auto;
   background-color: #0f172a;
 }
-.dropdown-box{
+.dropdown-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,18 +61,18 @@
   gap: 0.25rem;
   height: auto;
 }
-.dropdown-box li{
+.dropdown-box li {
   width: 100%;
   text-align: center;
-  display: flex ;
+  display: flex;
 }
-.btn{
+.btn {
   background-color: transparent;
 }
-.btn:hover{
+.btn:hover {
   border: 1px solid transparent;
 }
-.item{
+.item {
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -80,7 +80,7 @@
   border-radius: 0.2rem;
   padding: 16px;
 }
-.dropdown-box li:hover{
+.dropdown-box li:hover {
   background-color: #1e293b;
 }
 .switch {
@@ -96,6 +96,10 @@
   height: 0;
 }
 
+.modal-box {
+  display: flex;
+  flex-direction: column;
+}
 .slider {
   position: absolute;
   cursor: pointer;
@@ -104,8 +108,8 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -116,8 +120,8 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
