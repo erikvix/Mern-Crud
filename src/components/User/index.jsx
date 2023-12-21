@@ -1,6 +1,12 @@
 import "@/components/User/User.css";
 import { useState } from "react";
-import { MdInfoOutline } from "react-icons/md";
+import {
+  MdInfoOutline,
+  MdPersonAddAlt1,
+  MdPersonSearch,
+  MdPersonRemove,
+} from "react-icons/md";
+import { FaUserEdit } from "react-icons/fa";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 
@@ -24,7 +30,7 @@ const User = () => {
         <div className="dropdown">
           <ul className="dropdown-box">
             <li>
-              <button onClick={handleOpenModal} className="item">
+              <button onClick={handleOpenModal} className="item btn">
                 <MdInfoOutline size={24} />
                 About this project
               </button>
@@ -65,23 +71,33 @@ const User = () => {
       </i>
       {isModalOpen && (
         <Modal isOpen={true}>
-          <h1>Crud MERN-Stack</h1>
-          <h3>o aplicativo exerce as seguintes funções:</h3>
-          <ul className="modal-box">
-            <li>
-              <p>Inserção de usuário</p>
-            </li>
-            <li>
-              <p>Deleção de usuário</p>
-            </li>
-            <li>
-              <p>Edição de usuário</p>
-            </li>
-            <li>
-              <p>Pesquisa de usuário</p>
-            </li>
-          </ul>
-          <Button onClick={() => setIsModalOpen(false)}>X</Button>
+          <div className="modal">
+            <div className="header">
+              <div>
+                <h1>What's New</h1>
+                <span>December 14, 2023</span>
+              </div>
+              <div>
+                <Button onClick={() => setIsModalOpen(false)}>X</Button>
+              </div>
+            </div>
+            <div>
+              <div className="header-2">
+                <h2 className="h1">NEW FEATURES</h2>
+                <div className="hr"></div>
+              </div>
+              <ul className="list">
+                <li>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Nemo vel mollitia vitae distinctio ipsam nostrum autem quae
+                    totam consectetur nobis fugit sed, magni dolores nihil, sint
+                    praesentium quod laudantium quas.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </Modal>
       )}
     </div>

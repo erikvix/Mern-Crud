@@ -68,6 +68,8 @@
 }
 .btn {
   background-color: transparent;
+  color: #fff;
+  font-weight: 500;
 }
 .btn:hover {
   border: 1px solid transparent;
@@ -95,10 +97,31 @@
   width: 0;
   height: 0;
 }
-
-.modal-box {
+.modal{
+  padding: 0.5rem;
+}
+.header-2{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;  
+}
+.hr{
+  border-bottom: 1px solid #61dbfb;
+  width: 350px;
+}
+.list{
+  padding: 0.5rem;
+}
+ul, li{
+  list-style: disc;
+}
+.h1{
+  font-size: 1rem;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .slider {
   position: absolute;
