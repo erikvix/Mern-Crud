@@ -44,11 +44,6 @@ const User = () => {
                 </label>
               </a>
             </li>
-            <li>
-              <a href="" className="item">
-                About this project!
-              </a>
-            </li>
           </ul>
         </div>
       )}
@@ -87,12 +82,15 @@ const User = () => {
                 <div className="hr"></div>
               </div>
               <ul className="list">
-                <li>
+                <li className="li-box">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nemo vel mollitia vitae distinctio ipsam nostrum autem quae
-                    totam consectetur nobis fugit sed, magni dolores nihil, sint
-                    praesentium quod laudantium quas.
+                    <span>Dark Theme.</span> Dark theme feature implemented.
+                  </p>
+                </li>
+                <li className="li-box">
+                  <p>
+                    <span>CRUD working.</span> Add, Edit, Delete and Search are
+                    avaliable to test on our aplication.
                   </p>
                 </li>
               </ul>
