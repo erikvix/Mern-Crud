@@ -1,4 +1,3 @@
-import "./App.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import { Outlet } from "react-router-dom";
@@ -6,17 +5,15 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="app-container">
-        <div className="sidebar">
-          <Sidebar />
-        </div>
-        <div className="content">
+      <div className="flex  w-screen border h-screen md:flex flex-row ">
+        <Sidebar />
+        <div className="flex flex-col border md:flex-1 md:px-8 md:py-4 md:h-16">
           <Header />
-        </div>
-        <div className="test">
-          <main className="main-content">
-            <Outlet />
-          </main>
+          <div className="md:flex h-screen  items-center justify-center">
+            <main className="bg-[#0f172a] p-6 rounded-[1.5rem] mx-8">
+              <Outlet />
+            </main>
+          </div>
         </div>
       </div>
     </>

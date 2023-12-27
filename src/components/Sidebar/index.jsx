@@ -1,16 +1,15 @@
 import Logo from "@/components/Logo";
 import NavLink from "@/components/NavLink";
-import "./Sidebar.css";
 
 const Sidebar = () => (
-  <aside className="siderbar-container">
-    <div className="logo-avatar">
+  <aside className="hidden md:flex flex-col bg-[#0f172a] w-48">
+    <div className="md:flex flex-col items-center mt-12">
       <Logo />
-      <p className="center">
+      <p className="mt-4">
         React <span>App</span>
       </p>
     </div>
-    <div className="content-sidebar">
+    <div className="p-4">
       <NavLink />
     </div>
   </aside>

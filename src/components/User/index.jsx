@@ -31,18 +31,18 @@ const User = () => {
           <ul className="dropdown-box">
             <li>
               <button onClick={handleOpenModal} className="item btn">
-                <MdInfoOutline size={24} />
                 About this project
+                <MdInfoOutline size={24} />
               </button>
             </li>
             <li>
-              <a href="" className="item">
+              <p href="" className="item font-medium text-lg">
                 Dark Theme
                 <label class="switch">
                   <input type="checkbox" />
                   <span class="slider round"></span>
                 </label>
-              </a>
+              </p>
             </li>
           </ul>
         </div>
@@ -66,10 +66,10 @@ const User = () => {
       </i>
       {isModalOpen && (
         <Modal isOpen={true}>
-          <div className="modal">
+          <div className="modal leading-6">
             <div className="header">
               <div>
-                <h1>What's New</h1>
+                <h1 className="text-2xl uppercase font-bold">What's New</h1>
                 <span>December 14, 2023</span>
               </div>
               <div>
@@ -77,11 +77,11 @@ const User = () => {
               </div>
             </div>
             <div>
-              <div className="header-2">
-                <h2 className="h1">NEW FEATURES</h2>
-                <div className="hr"></div>
+              <div className="header-2 flex flex-col p-4 items-center gap-1">
+                <h2 className="text-base">NEW FEATURES</h2>
+                <div className="hr w-full"></div>
               </div>
-              <ul className="list">
+              <ul className="list flex flex-col gap-4">
                 <li className="li-box">
                   <p>
                     <span>Dark Theme.</span> Dark theme feature implemented.

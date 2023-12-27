@@ -1,16 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
-import "./NavLinkBox.css";
 import Icon from "@/components/Icon";
 
-const NavLinkBox = ({ type, pathName, children, icon }) => {
+const NavLinkBox = ({ pathName, children, icon, colorIcon, colorText }) => {
   const location = useLocation();
 
   const isActive = location.pathname === pathName;
 
   return (
-    <div className={`widget-${type} ${isActive ? "active" : ""}`}>
-      <Icon icon={icon} />
-      <Link to={pathName}>{children}</Link>
+    <div
+      className={`flex items-center gap-2 transition ${
+        isActive ? "text-[#61dbfb]" : ""
+      }`}
+    >
+      <Icon icon={icon} color={colorIcon} />
+      <Link to={pathName} className={`text-${colorText}`}>
+        {children}
+      </Link>
     </div>
   );
 };
