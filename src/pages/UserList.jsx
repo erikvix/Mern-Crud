@@ -1,5 +1,4 @@
 import Alert from "@/components/Alert";
-import "./UserList.css";
 import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
@@ -9,6 +8,7 @@ import Loading from "@/components/Loading";
 import EditModal from "@/components/Modal/EditModal.jsx";
 import Modal from "@/components/Modal";
 import { useDebounce } from "use-debounce";
+import Table from "../components/Table";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -122,136 +122,137 @@ const UserList = () => {
   }, []);
 
   return (
-    <section className="flex flex-col gap-8">
-      <div className="flex justify-between">
-        <Button text="Add User" pathName="/Add">
-          Add User
-        </Button>
-        <Input
-          type="text"
-          onChange={handleInputChange}
-          placeholder="Search email..."
-          withButton="true"
-          onClick={() => setSearch(inputValue)}
-        >
-          <Icon icon={MdSearch} />
-        </Input>
-      </div>
-      <div className="overflow-x-auto">
-        {users.length > 0 ? (
-          <table className="table min-w-full ">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>First-Name</th>
-                <th>Last-Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users
-                .filter((user) => {
-                  return search.toLowerCase() === ""
-                    ? user
-                    : user.email.toLowerCase().includes(search);
-                })
-                .map((user, index) => (
-                  <tr key={index}>
-                    <td>{user.id}</td>
-                    <td>{user.firstname}</td>
-                    <td>{user.lastname}</td>
-                    <td>{user.email}</td>
-                    <td>{user.password}</td>
-                    <td>
-                      <box-icon
-                        style={{ cursor: "pointer" }}
-                        color="#94a3b8"
-                        name="edit"
-                        onClick={() => {
-                          handleOpenModaltest(user);
-                        }}
-                      ></box-icon>
-                      <box-icon
-                        style={{ cursor: "pointer" }}
-                        color="#94a3b8"
-                        name="x"
-                        onClick={() => handleOpenModal(user)}
-                      ></box-icon>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        ) : (
-          <Loading />
-        )}
-      </div>
-      <Modal isOpen={isModalOpen}>
-        <h3>Are you sure you want to delete the user?</h3>
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            marginTop: "1rem",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Button
-            className={"button-ok"}
-            textClass={"textNormal"}
-            onClick={() => handleDeleteUser(user)}
-          >
-            Delete
-          </Button>
-          <Button
-            className={"button-cancel"}
-            textClass={"textNormal"}
-            onClick={() => setIsModalOpen(false)}
-          >
-            Cancel
-          </Button>
-        </div>
-      </Modal>
-      <EditModal isOpen={isEditModalOpen}>
-        <h3>Edit an user</h3>
-        <form
-          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-          onSubmit={handleEditUser}
-        >
-          {fields.map((field) => (
-            <div className="input-box" key={field.id}>
-              <Input
-                id={field.id}
-                type={field.type}
-                value={field.value}
-                placeholder={field.placeholder}
-                onChange={field.onChange}
-              />
-            </div>
-          ))}
-        </form>
-        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-          <Button
-            className={"button-ok"}
-            textClass={"textNormal"}
-            onClick={() => handleEditUser()}
-          >
-            Edit
-          </Button>
-          <Button
-            className={"button-cancel"}
-            textClass={"textNormal"}
-            onClick={() => setEditIsModalOpen(false)}
-          >
-            Cancel
-          </Button>
-        </div>
-      </EditModal>
-      <Alert isOpen={isAlertOpen}>User edited!</Alert>
-    </section>
+    <Table />
+    // <section className="flex flex-col gap-8">
+    //   <div className="flex justify-between">
+    //     <Button text="Add User" pathName="/Add">
+    //       Add User
+    //     </Button>
+    //     <Input
+    //       type="text"
+    //       onChange={handleInputChange}
+    //       placeholder="Search email..."
+    //       withButton="true"
+    //       onClick={() => setSearch(inputValue)}
+    //     >
+    //       <Icon icon={MdSearch} />
+    //     </Input>
+    //   </div>
+    //   <div className="overflow-x-auto">
+    //     {users.length > 0 ? (
+    //       <table className="table min-w-full ">
+    //         <thead>
+    //           <tr>
+    //             <th>ID</th>
+    //             <th>First-Name</th>
+    //             <th>Last-Name</th>
+    //             <th>Email</th>
+    //             <th>Password</th>
+    //             <th>Action</th>
+    //           </tr>
+    //         </thead>
+    //         <tbody>
+    //           {users
+    //             .filter((user) => {
+    //               return search.toLowerCase() === ""
+    //                 ? user
+    //                 : user.email.toLowerCase().includes(search);
+    //             })
+    //             .map((user, index) => (
+    //               <tr key={index}>
+    //                 <td>{user.id}</td>
+    //                 <td>{user.firstname}</td>
+    //                 <td>{user.lastname}</td>
+    //                 <td>{user.email}</td>
+    //                 <td>{user.password}</td>
+    //                 <td>
+    //                   <box-icon
+    //                     style={{ cursor: "pointer" }}
+    //                     color="#94a3b8"
+    //                     name="edit"
+    //                     onClick={() => {
+    //                       handleOpenModaltest(user);
+    //                     }}
+    //                   ></box-icon>
+    //                   <box-icon
+    //                     style={{ cursor: "pointer" }}
+    //                     color="#94a3b8"
+    //                     name="x"
+    //                     onClick={() => handleOpenModal(user)}
+    //                   ></box-icon>
+    //                 </td>
+    //               </tr>
+    //             ))}
+    //         </tbody>
+    //       </table>
+    //     ) : (
+    //       <Loading />
+    //     )}
+    //   </div>
+    //   <Modal isOpen={isModalOpen}>
+    //     <h3>Are you sure you want to delete the user?</h3>
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         gap: "1rem",
+    //         marginTop: "1rem",
+    //         alignItems: "center",
+    //         justifyContent: "center",
+    //       }}
+    //     >
+    //       <Button
+    //         className={"button-ok"}
+    //         textClass={"textNormal"}
+    //         onClick={() => handleDeleteUser(user)}
+    //       >
+    //         Delete
+    //       </Button>
+    //       <Button
+    //         className={"button-cancel"}
+    //         textClass={"textNormal"}
+    //         onClick={() => setIsModalOpen(false)}
+    //       >
+    //         Cancel
+    //       </Button>
+    //     </div>
+    //   </Modal>
+    //   <EditModal isOpen={isEditModalOpen}>
+    //     <h3>Edit an user</h3>
+    //     <form
+    //       style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+    //       onSubmit={handleEditUser}
+    //     >
+    //       {fields.map((field) => (
+    //         <div className="input-box" key={field.id}>
+    //           <Input
+    //             id={field.id}
+    //             type={field.type}
+    //             value={field.value}
+    //             placeholder={field.placeholder}
+    //             onChange={field.onChange}
+    //           />
+    //         </div>
+    //       ))}
+    //     </form>
+    //     <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+    //       <Button
+    //         className={"button-ok"}
+    //         textClass={"textNormal"}
+    //         onClick={() => handleEditUser()}
+    //       >
+    //         Edit
+    //       </Button>
+    //       <Button
+    //         className={"button-cancel"}
+    //         textClass={"textNormal"}
+    //         onClick={() => setEditIsModalOpen(false)}
+    //       >
+    //         Cancel
+    //       </Button>
+    //     </div>
+    //   </EditModal>
+    //   <Alert isOpen={isAlertOpen}>User edited!</Alert>
+    // </section>
   );
 };
 

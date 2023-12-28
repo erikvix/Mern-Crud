@@ -1,9 +1,7 @@
-@import 'typeface-poppins';
+@import "typeface-poppins";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 :root {
   font-family: "Poppins", sans-serif;
@@ -34,10 +32,8 @@ a {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   overflow: hidden;
 }
 button {

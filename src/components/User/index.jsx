@@ -17,7 +17,7 @@ const User = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 mr-4 leading-3">
+    <div className="flex items-center justify-end gap-2 leading-3">
       <button
         className="hidden md:flex bg-[transparent] text-white hover:border-transparent"
         onClick={handleButtonClick}
