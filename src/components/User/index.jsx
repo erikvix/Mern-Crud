@@ -1,12 +1,7 @@
 import "@/components/User/User.css";
+import { FaAngleDown } from "react-icons/fa6";
 import { useState } from "react";
-import {
-  MdInfoOutline,
-  MdPersonAddAlt1,
-  MdPersonSearch,
-  MdPersonRemove,
-} from "react-icons/md";
-import { FaUserEdit } from "react-icons/fa";
+import { HiUserCircle } from "react-icons/hi";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 
@@ -22,8 +17,11 @@ const User = () => {
   };
 
   return (
-    <div className="user-container">
-      <button className="btn" onClick={handleButtonClick}>
+    <div className="flex items-center justify-end gap-2 mr-4 leading-3">
+      <button
+        className="hidden md:flex bg-[transparent] text-white hover:border-transparent"
+        onClick={handleButtonClick}
+      >
         <box-icon color="#fff" id="bell" type="solid" name="bell"></box-icon>
       </button>
       {isOpen && (
@@ -47,23 +45,18 @@ const User = () => {
           </ul>
         </div>
       )}
-      <div>
-        <box-icon
-          color="#fff"
-          id="user"
-          name="user-circle"
-          type="solid"
-        ></box-icon>
+      <div className="">
+        <HiUserCircle size={32} />
       </div>
-      <div className="user-box">
+      <div className="hidden md:flex flex-col">
         <h3>User.name</h3>
         <p className="paragraph">email@gmail.com</p>
       </div>
-      <i>
-        <button className="btn">
-          <box-icon id="arrow" name="chevron-down" color="#ffffff"></box-icon>
+      <div>
+        <button className="bg-[transparent] text-white hover:border-transparent">
+          <FaAngleDown />
         </button>
-      </i>
+      </div>
       {isModalOpen && (
         <Modal isOpen={true}>
           <div className="modal leading-6">

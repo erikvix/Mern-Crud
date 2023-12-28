@@ -122,8 +122,8 @@ const UserList = () => {
   }, []);
 
   return (
-    <section className="users-dashboard">
-      <div className="dashboard-header">
+    <section className="flex flex-col gap-8">
+      <div className="flex justify-between">
         <Button text="Add User" pathName="/Add">
           Add User
         </Button>
@@ -137,9 +137,9 @@ const UserList = () => {
           <Icon icon={MdSearch} />
         </Input>
       </div>
-      <div className="dashboard-content">
+      <div className="overflow-x-auto">
         {users.length > 0 ? (
-          <table className="table">
+          <table className="table min-w-full ">
             <thead>
               <tr>
                 <th>ID</th>
