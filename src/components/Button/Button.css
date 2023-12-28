@@ -2,16 +2,5 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #1e293b;
-}
-.textNormal {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  color: white;
-}
-.button-ok {
-  background-color: #16a34a;
-}
-.button-cancel {
-  background-color: #dc2626;
-  color: white;
+  padding: 0;
 }

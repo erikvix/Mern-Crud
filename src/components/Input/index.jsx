@@ -13,7 +13,7 @@ const Input = ({
 }) => (
   <div className="wrapper">
     <input
-      className="input"
+      className="bg-[#1e293b] rounded-[2rem] p-3 w-72 md:p-4 text-xs md:text-sm"
       id={id}
       type={type}
       placeholder={placeholder}
@@ -21,7 +21,10 @@ const Input = ({
       onChange={onChange}
     />
     {withButton && (
-      <Button onClick={onClick} className="button">
+      <Button
+        onClick={onClick}
+        className="absolute h-[80%] right-[3%] top-[10%] aspect-[1]"
+      >
         {children}
       </Button>
     )}
