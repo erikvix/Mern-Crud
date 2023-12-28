@@ -13,67 +13,43 @@ import { useDebounce } from "use-debounce";
 export default function Table() {
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-        <thead className="ltr:text-left rtl:text-right">
+      <table className="min-w-full text-[#94a3b8] bg-[#1e293b] text-sm border-collapse">
+        <thead className="ltr:text-left rtl:text-right border-2 border-[#94a3b8]">
           <tr>
-            <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Name
+            <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              ID
             </th>
-            <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Date of Birth
+            <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              First-Name
             </th>
-            <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Role
+            <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              Last-Name
             </th>
-            <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Salary
+            <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              Email
+            </th>
+            <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              Action
             </th>
           </tr>
         </thead>
 
         <tbody className="divide-y divide-gray-200">
           <tr>
-            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
               John Doe
             </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+            <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
               24/05/1995
             </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+            <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
               Web Developer
             </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+            <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
               $120,000
             </td>
-          </tr>
-
-          <tr>
-            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Jane Doe
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              04/11/1980
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              Web Designer
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              $100,000
-            </td>
-          </tr>
-
-          <tr>
-            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              Gary Barlow
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              24/05/1995
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              Singer
-            </td>
-            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-              $20,000
+            <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+              x
             </td>
           </tr>
         </tbody>
