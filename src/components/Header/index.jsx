@@ -1,7 +1,8 @@
 import User from "@/components/User";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import Sidebar from "@/components/Sidebar";
+import Logo from "@/components/Logo";
+import NavLink from "@/components/NavLink";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,19 @@ const Header = () => {
         className="flex md:hidden cursor-pointer"
         onClick={handleOpenSidebar}
       />
-      {isOpen && <div className="fixedbg-black w-40 h-40"></div>}
+      {isOpen && (
+        <aside className="fixed top-20 md:flex flex-col bg-[#0f172a] w-48">
+          <div className="flex flex-col items-center my-8 md:mt-12">
+            <Logo />
+            <p className="mt-4 ">
+              React <span>App</span>
+            </p>
+          </div>
+          <div className="p-4">
+            <NavLink />
+          </div>
+        </aside>
+      )}
       <User />
     </header>
   );
