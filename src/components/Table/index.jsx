@@ -211,7 +211,7 @@ export default function Table() {
           <Button
             className={"bg-[#16a34a] px-3 py-1"}
             textClass={"text-sm md:text-lg"}
-            onClick={() => handleDeleteUser(user)}
+            onClick={() => handleDeleteUser()}
           >
             Delete
           </Button>
