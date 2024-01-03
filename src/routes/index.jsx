@@ -4,6 +4,7 @@ import UserList from "@/pages/UserList.jsx";
 import Dasboard from "@/pages/Dasboard.jsx";
 import CreateUser from "@/pages/CreateUser.jsx";
 import Settings from "../pages/Settings";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -26,10 +27,11 @@ const router = createBrowserRouter([
         path: "settings",
         element: <Settings />,
       },
-      {
-        path: "logout",
-      },
     ],
+  },
+  {
+    path: "home",
+    element: <Home />,
   },
 ]);
 

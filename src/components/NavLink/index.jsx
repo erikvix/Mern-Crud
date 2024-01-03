@@ -19,7 +19,7 @@ const navLinks = [
   },
   {
     text: "Logout",
-    pathName: "/logout",
+    pathName: "/home",
     icon: MdLogout,
     colorIcon: "#dc2626",
     colorText: "red-c",
