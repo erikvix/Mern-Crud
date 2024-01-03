@@ -29,7 +29,7 @@ const Header = () => {
         <span>React App</span>
       </div>
       {isOpen && (
-        <aside className="fixed top-20 left-0 w-[30%] h-full flex flex-col bg-slate-950">
+        <aside className="fixed top-20 left-0 w-[45%] h-full flex flex-col z-10 bg-slate-950">
           <div className="mt-10 p-4">
             <NavLink />
           </div>
