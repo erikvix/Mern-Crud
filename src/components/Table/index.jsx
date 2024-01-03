@@ -120,7 +120,7 @@ export default function Table() {
   }, []);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="">
       <div className="flex justify-between mb-8 ">
         <Button
           className="text-sm md:text-lg px-2 md:px6 py-0 rounded-3xl"
