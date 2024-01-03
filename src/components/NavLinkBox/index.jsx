@@ -13,7 +13,12 @@ const NavLinkBox = ({ pathName, children, icon, colorIcon, colorText }) => {
       }`}
     >
       <Icon icon={icon} color={colorIcon} />
-      <Link to={pathName} className={`text-${colorText} text-sm`}>
+      <Link
+        to={pathName}
+        className={`text-${colorText} ${
+          isActive ? "text-[#61dbfb]" : ""
+        } text-sm`}
+      >
         {children}
       </Link>
     </div>
