@@ -120,8 +120,8 @@ export default function Table() {
   }, []);
 
   return (
-    <div className="overflow-x-auto">
-      <div className="flex w-full justify-between mb-8">
+    <div>
+      <div className="flex justify-between mb-8 ">
         <Button
           className="text-sm md:text-lg px-2 md:px6 py-0 rounded-3xl"
           text="Add User"
@@ -139,72 +139,74 @@ export default function Table() {
           <Icon icon={MdSearch} />
         </Input>
       </div>
-      {users.length > 0 ? (
-        <table className="min-w-full text-[#94a3b8] bg-[#1e293b] text-sm border-collapse">
-          <thead className="ltr:text-left rtl:text-right border-2 border-[#94a3b8]">
-            <tr>
-              <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                ID
-              </th>
-              <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                First-Name
-              </th>
-              <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                Last-Name
-              </th>
-              <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                Email
-              </th>
-              <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                Action
-              </th>
-            </tr>
-          </thead>
+      <div className="overflow-x-auto">
+        {users.length > 0 ? (
+          <table className="min-w-full text-[#94a3b8] bg-[#1e293b] text-sm border-collapse">
+            <thead className="ltr:text-left rtl:text-right border-2 border-[#94a3b8]">
+              <tr>
+                <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  ID
+                </th>
+                <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  First-Name
+                </th>
+                <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  Last-Name
+                </th>
+                <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  Email
+                </th>
+                <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  Action
+                </th>
+              </tr>
+            </thead>
 
-          <tbody className="divide-y divide-gray-200">
-            {users
-              .filter((user) => {
-                return search.toLowerCase() === ""
-                  ? user
-                  : user.email.toLowerCase().includes(search);
-              })
-              .map((user, index) => (
-                <tr key={index}>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap text-xs px-4 py-2">
-                    {user.id}
-                  </td>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                    {user.firstname}
-                  </td>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                    {user.lastname}
-                  </td>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                    {user.email}
-                  </td>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
-                    <box-icon
-                      style={{ cursor: "pointer" }}
-                      color="#94a3b8"
-                      name="edit"
-                      onClick={() => {
-                        handleOpenModaltest(user);
-                      }}
-                    ></box-icon>
-                    <box-icon
-                      style={{ cursor: "pointer" }}
-                      color="#94a3b8"
-                      name="x"
-                      onClick={() => handleOpenModal(user)}
-                    ></box-icon>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      ) : (
-        <Loading />
-      )}
+            <tbody className="divide-y divide-gray-200">
+              {users
+                .filter((user) => {
+                  return search.toLowerCase() === ""
+                    ? user
+                    : user.email.toLowerCase().includes(search);
+                })
+                .map((user, index) => (
+                  <tr key={index}>
+                    <td className="border-2 border-[#94a3b8] whitespace-nowrap text-xs px-4 py-2">
+                      {user.id}
+                    </td>
+                    <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                      {user.firstname}
+                    </td>
+                    <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                      {user.lastname}
+                    </td>
+                    <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                      {user.email}
+                    </td>
+                    <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                      <box-icon
+                        style={{ cursor: "pointer" }}
+                        color="#94a3b8"
+                        name="edit"
+                        onClick={() => {
+                          handleOpenModaltest(user);
+                        }}
+                      ></box-icon>
+                      <box-icon
+                        style={{ cursor: "pointer" }}
+                        color="#94a3b8"
+                        name="x"
+                        onClick={() => handleOpenModal(user)}
+                      ></box-icon>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        ) : (
+          <Loading />
+        )}
+      </div>
       <Modal isOpen={isModalOpen}>
         <h3>Are you sure you want to delete the user?</h3>
         <div className="flex gap-4 mt-4 items-center justify-center">

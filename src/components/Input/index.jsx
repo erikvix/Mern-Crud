@@ -13,7 +13,7 @@ const Input = ({
 }) => (
   <div className="wrapper">
     <input
-      className="bg-[#1e293b] rounded-[2rem] p-3 md:w-72 w-52 md:p-4 text-xs md:text-sm"
+      className="bg-[#1e293b] rounded-[2rem] p-3 w-72 md:p-4 text-xs md:text-sm"
       id={id}
       type={type}
       placeholder={placeholder}
