@@ -121,9 +121,9 @@ export default function Table() {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex justify-between mb-8">
+      <div className="flex w-full justify-between mb-8">
         <Button
-          className="text-sm md:text-lg px-4 md:px6 py-0 rounded-3xl"
+          className="text-sm md:text-lg px-2 md:px6 py-0 rounded-3xl"
           text="Add User"
           pathName="/Add"
         >
@@ -170,7 +170,7 @@ export default function Table() {
               })
               .map((user, index) => (
                 <tr key={index}>
-                  <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
+                  <td className="border-2 border-[#94a3b8] whitespace-nowrap text-xs px-4 py-2">
                     {user.id}
                   </td>
                   <td className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
