@@ -19,9 +19,9 @@ export default function Home() {
           <BiLogoMongodb size={32} color="#61dbfb" />
         </div>
         <p className="mt-6 text-base text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
-          Aplicação web feita em MERN-Stack que utiliza a combinação de
-          tecnologias MongoDB, Express.js, React.js e Node.js para realizar
-          operações CRUD (Create, Read, Update, Delete) em uma base de dados.
+          Web application powered by MERN-stack, enabling users to effortlessly
+          perform CRUD operations—create, read, update, and delete—managing and
+          manipulating data with ease.
         </p>
         <div className="flex flex-col md:items-center mt-4 gap-4">
           <Button pathName="/" className="text-base md:px-8 py-2">
