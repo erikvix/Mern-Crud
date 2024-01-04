@@ -2,6 +2,7 @@ import "@/components/User/User.css";
 import { FaAngleDown } from "react-icons/fa6";
 import { useState } from "react";
 import { HiUserCircle } from "react-icons/hi";
+import { MdInfoOutline } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 
@@ -28,16 +29,22 @@ const User = () => {
         <div className="dropdown">
           <ul className="dropdown-box">
             <li>
-              <button onClick={handleOpenModal} className="item btn">
+              <button
+                onClick={handleOpenModal}
+                className="flex items-center bg-transparent text-white font-normal text-base gap-2 p-2 hover:border-transparent"
+              >
                 About this project
                 <MdInfoOutline size={24} />
               </button>
             </li>
             <li>
-              <p href="" className="item font-medium text-lg">
+              <p
+                href=""
+                className="flex items-center bg-transparent text-white font-normal text-base gap-2 p-2 hover:border-transparent"
+              >
                 Dark Theme
-                <label class="switch">
-                  <input type="checkbox" />
+                <label class="relative inline-block w-[55px] h-[28px]">
+                  <input type="checkbox" className="w-0 h-0 opacity-0" />
                   <span class="slider round"></span>
                 </label>
               </p>

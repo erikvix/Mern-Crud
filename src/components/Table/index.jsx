@@ -8,7 +8,6 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 import EditModal from "@/components/Modal/EditModal.jsx";
 import Modal from "@/components/Modal";
-import { useDebounce } from "use-debounce";
 
 export default function Table() {
   const [users, setUsers] = useState([]);
