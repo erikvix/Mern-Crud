@@ -6,8 +6,9 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 export default function Home() {
   return (
-    <div className="mx-auto max-w-screen-xl p-4 h-screen w-screen flex justify-center items-center">
-      <section className="max-w-5xl">
+    <div className="h-screen flex items-center overflow-hidden py-28 px-4 bg-gray-900 md:px-8">
+      <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10"></div>
+      <section className="max-w-xl mx-auto text-center relative">
         <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
           CRUD
         </h1>
@@ -29,6 +30,13 @@ export default function Home() {
           </Button>
         </div>
       </section>
+      {/* <div
+        className="absolute inset-0 m-auto max-w-xs h-[357px] blur-[118px] sm:max-w-md md:max-w-lg"
+        style={{
+          background:
+            "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
+        }}
+      ></div> */}
     </div>
   );
 }

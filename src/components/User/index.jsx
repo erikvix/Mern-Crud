@@ -26,7 +26,7 @@ const User = () => {
         <box-icon color="#fff" id="bell" type="solid" name="bell"></box-icon>
       </button>
       {isOpen && (
-        <div className="dropdown">
+        <div className="absolute top-[90px] right-[320px] w-max h-auto bg-slate-900">
           <ul className="dropdown-box">
             <li>
               <button

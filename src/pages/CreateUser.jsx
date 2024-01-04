@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./CreateUser.css";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Alert from "@/components/Alert";
@@ -60,7 +59,7 @@ const CreateUser = () => {
 
   return (
     <div>
-      <h1 className="text-xl">Register</h1>
+      <h1 className="text-xl text-center">Register</h1>
       <form
         className="flex flex-col p-4 gap-6 justify-center items-center"
         onSubmit={handleCreateUser}
@@ -76,7 +75,9 @@ const CreateUser = () => {
             />
           </div>
         ))}
-        <Button onClick={handleCreateUser}>Add User</Button>
+        <Button className="py-2" onClick={handleCreateUser}>
+          Add User
+        </Button>
       </form>
       <Alert isOpen={isAlertOpen}>User Created!</Alert>
     </div>
