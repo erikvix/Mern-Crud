@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import "@/components/Button/Button.css";
 
 const Button = ({
   children = "default",
-  textClass = "text",
+  textClass = "font-semibold text-slate-900",
   pathName,
   className,
   onClick,
