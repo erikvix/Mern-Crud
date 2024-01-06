@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./CreateUser.css";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Alert from "@/components/Alert";
@@ -60,8 +59,11 @@ const CreateUser = () => {
 
   return (
     <div>
-      <h1>Register</h1>
-      <form className="form" onSubmit={handleCreateUser}>
+      <h1 className="text-black text-xl text-center">Register</h1>
+      <form
+        className="flex flex-col p-4 gap-6 justify-center items-center"
+        onSubmit={handleCreateUser}
+      >
         {fields.map((field) => (
           <div className="input-box" key={field.id}>
             <Input

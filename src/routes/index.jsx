@@ -4,6 +4,7 @@ import UserList from "@/pages/UserList.jsx";
 import Dasboard from "@/pages/Dasboard.jsx";
 import CreateUser from "@/pages/CreateUser.jsx";
 import Settings from "../pages/Settings";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
     ],
+  },
+  {
+    path: "home",
+    element: <Home />,
   },
 ]);
 

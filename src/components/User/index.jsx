@@ -1,13 +1,35 @@
 import "@/components/User/User.css";
 import { FaAngleDown } from "react-icons/fa6";
+import { FaBell } from "react-icons/fa";
 import { useState } from "react";
 import { HiUserCircle } from "react-icons/hi";
+import { MdInfoOutline, MdLogout, MdDarkMode } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
+import { Link } from "react-router-dom";
 
 const User = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isArrowOpen, setIsArrowOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") !== "dark" ? "light" : "dark"
+  );
+
+  const toggleDarkMode = () => {
+    const root = window.document.documentElement;
+
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+
+    root.classList.remove("light", "dark");
+    root.classList.add(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  const handleOpenArrow = () => {
+    setIsArrowOpen(!isArrowOpen);
+  };
 
   const handleButtonClick = () => {
     setIsOpen(!isOpen);
@@ -17,45 +39,57 @@ const User = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 mr-4 leading-3">
+    <div className="flex items-center justify-end gap-6 leading-3">
       <button
-        className="hidden md:flex bg-[transparent] text-white hover:border-transparent"
+        className="hidden md:flex bg-[transparent] text-slate-950 dark:text-white hover:border-transparent"
         onClick={handleButtonClick}
       >
-        <box-icon color="#fff" id="bell" type="solid" name="bell"></box-icon>
+        <FaBell size={20} />
       </button>
       {isOpen && (
-        <div className="dropdown">
+        <div className="absolute top-[90px] right-[320px] w-max h-auto shadow-lg dark:text-white dark:bg-slate-900 text-slate-950">
           <ul className="dropdown-box">
             <li>
-              <button onClick={handleOpenModal} className="item btn">
+              <button
+                onClick={handleOpenModal}
+                className="ease-in-out rounded-none duration-300 flex items-center bg-transparent text-slate-950 dark:text-white font-normal text-base gap-2 p-2 dark:hover:bg-slate-800 hover:border-transparent hover:bg-gray-100"
+              >
                 About this project
                 <MdInfoOutline size={24} />
               </button>
             </li>
-            <li>
-              <p href="" className="item font-medium text-lg">
-                Dark Theme
-                <label class="switch">
-                  <input type="checkbox" />
-                  <span class="slider round"></span>
-                </label>
-              </p>
-            </li>
           </ul>
         </div>
       )}
-      <div className="">
+      <div className="text-slate-950 dark:text-white  ">
         <HiUserCircle size={32} />
       </div>
-      <div className="hidden md:flex flex-col">
+      <div className="hidden md:flex flex-col text-slate-950 dark:text-white">
         <h3>User.name</h3>
         <p className="paragraph">email@gmail.com</p>
       </div>
       <div>
-        <button className="bg-[transparent] text-white hover:border-transparent">
-          <FaAngleDown />
+        <button className="bg-[transparent] text-slate-950 dark:text-white hover:border-transparent">
+          <FaAngleDown onClick={handleOpenArrow} />
         </button>
+        {isArrowOpen && (
+          <div className="absolute flex flex-col gap-2 shadow-lg bg-gray-50 dark:bg-slate-900 right-5 mt-6 w-30 h-auto p-2 cursor-pointer z-10">
+            <div
+              onClick={toggleDarkMode}
+              className="p-3 dark:hover:bg-slate-800 hover:bg-gray-100 dark:text-white text-slate-950 flex items-center gap-2 cursor-pointer ease-in-out duration-300"
+            >
+              <MdDarkMode size={24} />
+              <p className="font-normal">Dark Theme</p>
+            </div>
+            <Link
+              to={"home"}
+              className="p-3 dark:hover:bg-slate-800 hover:bg-gray-100 ease-in-out duration-300   flex items-center gap-2 cursor-pointer text-red-500 font-normal"
+            >
+              <MdLogout size={24} />
+              Logout
+            </Link>
+          </div>
+        )}
       </div>
       {isModalOpen && (
         <Modal isOpen={true}>
