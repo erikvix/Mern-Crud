@@ -52,7 +52,7 @@ const User = () => {
             <li>
               <button
                 onClick={handleOpenModal}
-                className="ease-in-out rounded-none duration-300 flex items-center bg-transparent text-slate-950 dark:text-white font-normal text-base gap-2 p-2 dark:hover:bg-slate-800 hover:border-transparent hover:bg-gray-100"
+                className="ease-in-out rounded-none duration-300 flex items-center bg-transparent text-slate-950 dark:text-white font-normal text-base gap-2 p-2 dark:hover:bg-slate-800 hover:bg-gray-200"
               >
                 About this project
                 <MdInfoOutline size={24} />
