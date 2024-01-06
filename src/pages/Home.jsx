@@ -7,7 +7,7 @@ import Input from "@/components/Input";
 import { Link } from "react-router-dom";
 export default function Home() {
   return (
-    <div className="h-screen flex items-center overflow-hidden py-28 px-4 bg-gray-900 md:px-8">
+    <div className="h-screen flex overflow-hidden items-center overflow-hidden py-28 px-4 bg-gray-900 md:px-8">
       <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10"></div>
       <section className="max-w-xl mx-auto text-center relative">
         <h1 className=" font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center  text-slate-300">

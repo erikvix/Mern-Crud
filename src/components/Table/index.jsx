@@ -57,13 +57,6 @@ export default function Table() {
       type: "email",
       value: form.email,
     },
-    {
-      onChange: (e) => setForm({ ...form, password: e.target.value }),
-      placeholder: "Password",
-      id: "user-password",
-      type: "password",
-      value: form.password,
-    },
   ];
 
   const handleInputChange = (event) => {
@@ -87,6 +80,7 @@ export default function Table() {
       setIsAlertOpen(true);
       setTimeout(() => {
         setIsAlertOpen(false);
+        setEditIsModalOpen(false);
       }, 2000);
     } else {
       console.log("sem usuario");
