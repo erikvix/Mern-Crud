@@ -11,7 +11,7 @@ const Input = ({
 }) => (
   <div className="max-w-full relative">
     <input
-      className=" dark:bg-slate-800 rounded-[2rem] p-3 md:w-72 w-52 md:p-4 text-xs md:text-sm bg-gray-50 border border-gray-300 text-gray-500  focus:ring-blue-500 focus:border-blue-500 block  dark:border-slate-700 dark:placeholder-slate-400 dark:text-slate-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      className=" dark:bg-slate-800 rounded-[2rem] p-3 md:w-72 w-[200px] md:p-4 text-xs md:text-sm bg-gray-50 border border-gray-300 text-gray-500  focus:ring-blue-500 focus:border-blue-500 block  dark:border-slate-700 dark:placeholder-slate-400 dark:text-slate-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
       id={id}
       type={type}
       placeholder={placeholder}

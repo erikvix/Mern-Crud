@@ -8,15 +8,19 @@ const NavLinkBox = ({ pathName, children, icon, colorIcon, colorText }) => {
 
   return (
     <div
-      className={`flex items-center gap-2 transition  dark:text-white ${
-        isActive ? "text-[#61dbfb] dark:text-[#61dbfb]" : "text-gray-800"
+      className={`flex items-center gap-2 transition   ${
+        isActive
+          ? "text-[#61dbfb] dark:text-[#61dbfb]"
+          : "text-gray-400 dark:text-white"
       }`}
     >
       <Icon icon={icon} color={colorIcon} />
       <Link
         to={pathName}
-        className={`${colorText} dark:text-white ${
-          isActive ? "text-[#61dbfb] dark:text-[#61dbfb]" : "text-gray-800"
+        className={`${colorText}  ${
+          isActive
+            ? "text-[#61dbfb] dark:text-[#61dbfb]"
+            : "text-gray-400 dark:text-white"
         } text-sm`}
       >
         {children}

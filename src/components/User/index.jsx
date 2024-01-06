@@ -39,7 +39,7 @@ const User = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 leading-3">
+    <div className="flex items-center justify-end gap-6 leading-3">
       <button
         className="hidden md:flex bg-[transparent] text-slate-950 dark:text-white hover:border-transparent"
         onClick={handleButtonClick}
@@ -73,7 +73,7 @@ const User = () => {
           <FaAngleDown onClick={handleOpenArrow} />
         </button>
         {isArrowOpen && (
-          <div className="absolute flex flex-col gap-2 shadow-lg dark:bg-slate-900 right-5 mt-6 w-30 h-auto p-2 cursor-pointer z-10">
+          <div className="absolute flex flex-col gap-2 shadow-lg bg-gray-50 dark:bg-slate-900 right-5 mt-6 w-30 h-auto p-2 cursor-pointer z-10">
             <div
               onClick={toggleDarkMode}
               className="p-3 dark:hover:bg-slate-800 hover:bg-gray-100 dark:text-white text-slate-950 flex items-center gap-2 cursor-pointer ease-in-out duration-300"

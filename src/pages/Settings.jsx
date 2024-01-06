@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Settings() {
   return (
-    <div className="bg-white dark:bg-slate-950">
+    <div className="">
       <div>
         <h3>Settings</h3>
       </div>

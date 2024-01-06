@@ -18,7 +18,7 @@ function App() {
     }
   }, []);
   return (
-    <div className="bg-slate-100 dark:bg-slate-950">
+    <div className="bg-gray-100 dark:bg-slate-950">
       <div className=" md:flex flex-row">
         <Sidebar />
         <div className="flex flex-col md:flex-1 md:px-8 md:py-4 md:h-screen">
