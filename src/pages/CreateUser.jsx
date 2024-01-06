@@ -59,7 +59,7 @@ const CreateUser = () => {
 
   return (
     <div>
-      <h1 className="text-xl text-center">Register</h1>
+      <h1 className="text-black text-xl text-center">Register</h1>
       <form
         className="flex flex-col p-4 gap-6 justify-center items-center"
         onSubmit={handleCreateUser}
@@ -75,9 +75,7 @@ const CreateUser = () => {
             />
           </div>
         ))}
-        <Button className="py-2" onClick={handleCreateUser}>
-          Add User
-        </Button>
+        <Button onClick={handleCreateUser}>Add User</Button>
       </form>
       <Alert isOpen={isAlertOpen}>User Created!</Alert>
     </div>

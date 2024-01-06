@@ -36,31 +36,3 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
-button {
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  font-size: 1.1em;
-  padding: 0.25rem 1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #1e293b;
-  background-color: #61dbfb;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border: 1px solid #1a6679;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

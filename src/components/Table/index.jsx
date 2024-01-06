@@ -121,11 +121,7 @@ export default function Table() {
   return (
     <div className="">
       <div className="flex justify-between mb-8 ">
-        <Button
-          className="text-sm md:text-lg px-2 md:px6 py-0 rounded-3xl"
-          text="Add User"
-          pathName="/Add"
-        >
+        <Button text="Add User" pathName="/Add">
           Add User
         </Button>
         <Input
@@ -133,16 +129,17 @@ export default function Table() {
           onChange={handleInputChange}
           placeholder="Search email..."
           withButton="true"
+          className=""
           onClick={() => setSearch(inputValue)}
         >
-          <Icon icon={MdSearch} />
+          <Icon icon={MdSearch} color={"text-slate-400 dark:text-slate-400"} />
         </Input>
       </div>
       <div className="overflow-x-auto">
         {users.length > 0 ? (
-          <table className="min-w-full text-[#94a3b8] bg-[#1e293b] text-sm border-collapse">
-            <thead className="ltr:text-left rtl:text-right border-2 border-[#94a3b8]">
-              <tr>
+          <table className="min-w-full text-slate-400 dark:text-[#94a3b8] bg-gray-50 dark:bg-slate-800 text-sm border-collapse">
+            <thead className="ltr:text-left rtl:text-right border-2 dark:border-[#94a3b8]">
+              <tr className="bg-gray-100 dark:bg-slate-800">
                 <th className="border-2 border-[#94a3b8] whitespace-nowrap px-4 py-2">
                   ID
                 </th>
@@ -210,14 +207,14 @@ export default function Table() {
         <h3>Are you sure you want to delete the user?</h3>
         <div className="flex gap-4 mt-4 items-center justify-center">
           <Button
-            className={"bg-[#16a34a] px-3 py-1"}
+            className={"bg-[#16a34a] px-3 py-1 rounded-2xl"}
             textClass={"text-sm md:text-lg"}
             onClick={() => handleDeleteUser()}
           >
             Delete
           </Button>
           <Button
-            className={"bg-[#dc2626] px-3 py-1"}
+            className={"bg-[#dc2626] px-3 py-1 rounded-2xl"}
             textClass={"text-sm md:text-lg"}
             onClick={() => setIsModalOpen(false)}
           >
@@ -226,7 +223,7 @@ export default function Table() {
         </div>
       </Modal>
       <EditModal isOpen={isEditModalOpen}>
-        <h3>Edit an user</h3>
+        <h3 className="mb-4">Edit an user</h3>
         <form
           style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
           onSubmit={handleEditUser}
@@ -245,14 +242,14 @@ export default function Table() {
         </form>
         <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
           <Button
-            className={"bg-[#16a34a] px-3 py-1"}
+            className={"bg-[#16a34a] px-3 py-1 rounded-2xl"}
             textClass={"text-sm md:text-lg"}
             onClick={() => handleEditUser()}
           >
             Edit
           </Button>
           <Button
-            className={"bg-[#dc2626] px-3 py-1"}
+            className={"bg-[#dc2626] px-3 py-1 rounded-2xl"}
             textClass={"text-sm md:text-lg"}
             onClick={() => setEditIsModalOpen(false)}
           >

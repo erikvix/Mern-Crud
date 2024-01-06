@@ -4,12 +4,13 @@ import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="h-screen flex items-center overflow-hidden py-28 px-4 bg-gray-900 md:px-8">
       <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10"></div>
       <section className="max-w-xl mx-auto text-center relative">
-        <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
+        <h1 className=" font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center  text-slate-300">
           CRUD
         </h1>
         <h1 className="text-2xl text-slate-200 font-medium">MERN-Stack</h1>
@@ -25,8 +26,10 @@ export default function Home() {
           manipulating data with ease.
         </p>
         <div className="flex flex-col md:items-center mt-4 gap-4">
-          <Button pathName="/" className="text-base md:px-8 py-2">
-            Get Started
+          <Button className="text-base md:px-8 py-2 bg-[#61dbfb] px-4 rounded-3xl shadow-md ease-in-out duration-300 hover:opacity-80">
+            <Link to={"/"} className="text-slate-800 font-semibold">
+              Get Started
+            </Link>
           </Button>
         </div>
       </section>

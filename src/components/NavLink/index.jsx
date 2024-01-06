@@ -22,7 +22,7 @@ const navLinks = [
     pathName: "/home",
     icon: MdLogout,
     colorIcon: "#ef4444",
-    colorText: "[#ef4444]",
+    colorText: "text-red-500 dark:text-red-500",
   },
 ];
 
