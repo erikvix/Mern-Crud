@@ -5,6 +5,7 @@ import Dasboard from "@/pages/Dasboard.jsx";
 import CreateUser from "@/pages/CreateUser.jsx";
 import Settings from "../pages/Settings";
 import Home from "../pages/Home";
+import Auth from "../pages/Auth";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />,
+  },
+  {
+    path: "auth",
+    element: <Auth />,
   },
 ]);
 
