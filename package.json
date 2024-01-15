@@ -25,6 +25,7 @@
     "express": "^4.18.2",
     "lucide-react": "^0.309.0",
     "mongoose": "^7.4.2",
+    "netlify-identity-widget": "^1.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",

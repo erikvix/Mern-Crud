@@ -3,6 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { FaGithub } from "react-icons/fa";
+import netlifyIdentity from "netlify-identity-widget";
+
+netlifyIdentity.init();
+
+const handleOpenAuth = () => {
+  netlifyIdentity.open();
+};
 
 export default function Component() {
   return (
@@ -29,7 +36,7 @@ export default function Component() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" required type="password" />
             </div>
-            <Button className="w-full" type="submit">
+            <Button onClick={handleOpenAuth} className="w-full">
               Login
             </Button>
           </div>
