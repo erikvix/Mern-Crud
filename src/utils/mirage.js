@@ -34,6 +34,7 @@ const initMirage = () =>
         schema.users.find(request.params.id).update(body);
       });
       this.passthrough("https://unpkg.com/**/*");
+      this.passthrough("https://melodic-sunburst-d98e5a.netlify.app/.netlify/identity/*");
     },
   });
 
