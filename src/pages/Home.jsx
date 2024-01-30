@@ -4,13 +4,17 @@ import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
 import Button from "@/components/Button";
 import netlifyIdentity from "netlify-identity-widget";
+import { redirect } from "react-router-dom";
 
 netlifyIdentity.init();
 
 const handleLogin = () => {
   netlifyIdentity.open();
   const user = netlifyIdentity.currentUser();
-  console.log(user);
+  netlifyIdentity.on("login", () =>{
+    netlifyIdentity.close();
+    redirect("/dashboard")
+  })
 };
 
 export default function Home() {
