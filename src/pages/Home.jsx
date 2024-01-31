@@ -5,19 +5,26 @@ import { BiLogoMongodb } from "react-icons/bi";
 import Button from "@/components/Button";
 import netlifyIdentity from "netlify-identity-widget";
 import { redirect } from "react-router-dom";
+import { useUserStore } from "../utils/zustand";
 
 netlifyIdentity.init();
 
-const handleLogin = () => {
-  netlifyIdentity.open();
-  const user = netlifyIdentity.currentUser();
-  netlifyIdentity.on("login", () =>{
-    netlifyIdentity.close();
-    redirect("/dashboard")
-  })
-};
-
 export default function Home() {
+  const { user, setUser } = useUserStore();
+
+  const handleLogin = () => {
+    if (user) {
+      redirect("/home");
+    }
+    netlifyIdentity.open();
+    netlifyIdentity.on("login", (user) => {
+      setUser(user);
+      console.log(user);
+      netlifyIdentity.close();
+      redirect("/dashboard");
+    });
+  };
+
   return (
     <div className="h-screen flex items-center overflow-hidden py-28 px-4 bg-gray-900 md:px-8">
       <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10"></div>
