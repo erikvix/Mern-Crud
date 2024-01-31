@@ -10,18 +10,18 @@ import { useUserStore } from "../utils/zustand";
 netlifyIdentity.init();
 
 export default function Home() {
-  const { user, setUser } = useUserStore();
+  const store = useUserStore();
+  const setUser = useUserStore((state) => state.setUser);
 
   const handleLogin = () => {
-    if (user) {
-      redirect("/home");
-    }
+    netlifyIdentity.logout();
     netlifyIdentity.open();
     netlifyIdentity.on("login", (user) => {
-      setUser(user);
-      console.log(user);
+      setUser({ email: user.email });
+      console.log(store.user.email);
+      console.log(user.email);
       netlifyIdentity.close();
-      redirect("/dashboard");
+      window.location.href = "http://localhost:5173";
     });
   };
 

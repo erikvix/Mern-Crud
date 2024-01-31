@@ -1,14 +1,18 @@
 import "@/components/User/User.css";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaBell } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiUserCircle } from "react-icons/hi";
 import { MdInfoOutline, MdLogout, MdDarkMode } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
+import { useUserStore } from "../../utils/zustand";
 
 const User = () => {
+  useUserStore.setState({ user: { email: "John" } });
+  const store = useUserStore();
+  const user = useUserStore((state) => state.user.email);
   const [isOpen, setIsOpen] = useState(false);
   const [isArrowOpen, setIsArrowOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,6 +41,9 @@ const User = () => {
   const handleOpenModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+  useEffect(() => {
+    console.log(store);
+  }, []);
 
   return (
     <div className="flex items-center justify-end gap-6 leading-3">
@@ -66,7 +73,7 @@ const User = () => {
       </div>
       <div className="hidden md:flex flex-col text-slate-950 dark:text-white">
         <h3>User.name</h3>
-        <p className="paragraph">email@gmail.com</p>
+        <p className="paragraph">{user}</p>
       </div>
       <div>
         <button className="bg-[transparent] text-slate-950 dark:text-white hover:border-transparent">
