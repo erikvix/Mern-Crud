@@ -7,12 +7,9 @@ import { MdInfoOutline, MdLogout, MdDarkMode } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { useUserStore } from "../../utils/zustand";
-
+import { usePersonStore } from "../../pages/Home";
 const User = () => {
-  useUserStore.setState({ user: { email: "John" } });
-  const store = useUserStore();
-  const user = useUserStore((state) => state.user.email);
+  const firstName = usePersonStore((state) => state.firstName);
   const [isOpen, setIsOpen] = useState(false);
   const [isArrowOpen, setIsArrowOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +39,7 @@ const User = () => {
     setIsModalOpen(!isModalOpen);
   };
   useEffect(() => {
-    console.log(store);
+    console.log(firstName);
   }, []);
 
   return (
@@ -73,7 +70,7 @@ const User = () => {
       </div>
       <div className="hidden md:flex flex-col text-slate-950 dark:text-white">
         <h3>User.name</h3>
-        <p className="paragraph">{user}</p>
+        <p className="paragraph">{firstName}</p>
       </div>
       <div>
         <button className="bg-[transparent] text-slate-950 dark:text-white hover:border-transparent">

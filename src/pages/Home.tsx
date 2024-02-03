@@ -2,24 +2,37 @@ import React from "react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
-import Button from "@/components/Button";
 import netlifyIdentity from "netlify-identity-widget";
-import { redirect } from "react-router-dom";
-import { useUserStore } from "../utils/zustand";
+import { create } from "zustand";
+
+type State = {
+  firstName: string;
+};
+
+type Action = {
+  updateFirstName: (firstName: State["firstName"]) => void;
+};
+
+export const usePersonStore = create<State & Action>((set) => ({
+  firstName: "",
+  updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
+}));
 
 netlifyIdentity.init();
 
 export default function Home() {
-  const store = useUserStore();
-  const setUser = useUserStore((state) => state.setUser);
+  const firstName = usePersonStore((state) => state.firstName);
+
+  const updateFirstName = usePersonStore((state) => state.updateFirstName);
 
   const handleLogin = () => {
     netlifyIdentity.logout();
     netlifyIdentity.open();
     netlifyIdentity.on("login", (user) => {
-      setUser({ email: user.email });
-      console.log(store.user.email);
-      console.log(user.email);
+      const email = user.email;
+      updateFirstName(email);
+      console.log(email);
+      console.log(firstName);
       netlifyIdentity.close();
       window.location.href = "http://localhost:5173";
     });
@@ -45,12 +58,18 @@ export default function Home() {
           manipulating data with ease.
         </p>
         <div className="flex flex-col md:items-center mt-4 gap-4">
-          <Button
+          {/* <Button
             onClick={handleLogin}
             className="text-base md:px-8 py-2 bg-[#61dbfb] px-4 rounded-3xl shadow-md ease-in-out duration-300 hover:opacity-80"
           >
             Get Started
-          </Button>
+          </Button> */}
+          <button
+            onClick={handleLogin}
+            className="text-base md:px-8 py-2 bg-[#61dbfb] px-4 rounded-3xl shadow-md ease-in-out duration-300 hover:opacity-80"
+          >
+            Get Started
+          </button>
         </div>
       </section>
     </div>
