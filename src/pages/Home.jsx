@@ -4,6 +4,7 @@ import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
 import netlifyIdentity from "netlify-identity-widget";
 import { UserStorage } from "../utils/useContextHook";
+import { redirect } from "react-router-dom";
 
 netlifyIdentity.init();
 
@@ -13,8 +14,9 @@ export default function Home() {
     netlifyIdentity.open();
     netlifyIdentity.on("login", (user) => {
       netlifyIdentity.close();
-      window.location.href =
-        "https://testnetlify--crud-mernstack.netlify.app/dashboard";
+      redirect("/dashboard");
+      // window.location.href =
+      //   "https://testnetlify--crud-mernstack.netlify.app/dashboard";
     });
   };
 
