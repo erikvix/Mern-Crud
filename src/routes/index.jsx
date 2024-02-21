@@ -3,35 +3,35 @@ import App from "@/App.jsx";
 import UserList from "@/pages/UserList.jsx";
 import Dasboard from "@/pages/Dasboard.jsx";
 import CreateUser from "@/pages/CreateUser.jsx";
-import Settings from "../pages/Settings";
-import Home from "../pages/Home";
+import Settings from "@/pages/Settings";
+import Home from "@/pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/dashboard",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/dashboard/",
         element: <UserList />,
       },
       {
-        path: "/Add",
+        path: "/dashboard/add",
         element: <CreateUser />,
       },
       {
-        path: "Dashboard",
+        path: "/dashboard/home",
         element: <Dasboard />,
       },
       {
-        path: "settings",
+        path: "/dashboard/settings",
         element: <Settings />,
       },
     ],
-  },
-  {
-    path: "home",
-    element: <Home />,
   },
 ]);
 

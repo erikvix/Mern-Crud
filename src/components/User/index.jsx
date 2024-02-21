@@ -1,21 +1,28 @@
 import "@/components/User/User.css";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaBell } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { HiUserCircle } from "react-icons/hi";
 import { MdInfoOutline, MdLogout, MdDarkMode } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { usePersonStore } from "../../pages/Home";
+import { useContextHook } from "../../utils/useContextHook";
+import netlifyIdentity from "netlify-identity-widget";
+
+netlifyIdentity.init();
+
 const User = () => {
-  const firstName = usePersonStore((state) => state.firstName);
+  const user = netlifyIdentity.currentUser();
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const [isArrowOpen, setIsArrowOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") !== "dark" ? "light" : "dark"
   );
+
+  const { name } = useContext(useContextHook);
 
   const toggleDarkMode = () => {
     const root = window.document.documentElement;
@@ -38,9 +45,6 @@ const User = () => {
   const handleOpenModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  useEffect(() => {
-    console.log(firstName);
-  }, []);
 
   return (
     <div className="flex items-center justify-end gap-6 leading-3">
@@ -69,8 +73,8 @@ const User = () => {
         <HiUserCircle size={32} />
       </div>
       <div className="hidden md:flex flex-col text-slate-950 dark:text-white">
-        <h3>User.name</h3>
-        <p className="paragraph">{firstName}</p>
+        <h3>{user.user_metadata.full_name}</h3>
+        <p className="paragraph">{user.email}</p>
       </div>
       <div>
         <button className="bg-[transparent] text-slate-950 dark:text-white hover:border-transparent">
@@ -86,7 +90,7 @@ const User = () => {
               <p className="font-normal">Dark Theme</p>
             </div>
             <Link
-              to={"home"}
+              to={"/"}
               className="p-3 dark:hover:bg-slate-800 hover:bg-gray-100 ease-in-out duration-300   flex items-center gap-2 cursor-pointer text-red-500 font-normal"
             >
               <MdLogout size={24} />

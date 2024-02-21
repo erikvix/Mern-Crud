@@ -3,9 +3,11 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "@/routes";
 import { initMirage } from "@/utils/mirage";
+import netlifyIdentity from "netlify-identity-widget";
 
 import "boxicons";
 import "./index.css";
+netlifyIdentity.init();
 
 initMirage();
 

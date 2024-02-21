@@ -115,7 +115,7 @@ export default function Table() {
   return (
     <div className="">
       <div className="flex justify-between mb-8 ">
-        <Button text="Add User" pathName="/Add">
+        <Button text="Add User" pathName="/dashboard/add">
           Add User
         </Button>
         <Input
