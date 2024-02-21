@@ -14,7 +14,6 @@ netlifyIdentity.init();
 
 const User = () => {
   const user = netlifyIdentity.currentUser();
-  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const [isArrowOpen, setIsArrowOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
