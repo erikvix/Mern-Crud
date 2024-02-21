@@ -14,7 +14,7 @@ const initMirage = () =>
       this.urlPrefix =
         import.meta.env.MODE === "development"
           ? "http://localhost:5173"
-          : "https://crud-mernstack.netlify.app";
+          : "https://testnetlify--crud-mernstack.netlify.app";
       this.get("/api/users", (schema) => schema.users.all());
       this.delete("/api/users/:id", (schema, request) =>
         schema.users.find(request.params.id).destroy()
