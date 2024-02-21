@@ -13,7 +13,7 @@ export default function Home() {
     netlifyIdentity.open();
     netlifyIdentity.on("login", (user) => {
       netlifyIdentity.close();
-      window.location.href = "http://localhost:5173/dashboard";
+      window.location.href = "https://testnetlify--crud-mernstack.netlify.app";
     });
   };
 
