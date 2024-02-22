@@ -89,7 +89,7 @@ const User = () => {
               <p className="font-normal">Dark Theme</p>
             </div>
             <Link
-              to={"/"}
+              to={"/home"}
               className="p-3 dark:hover:bg-slate-800 hover:bg-gray-100 ease-in-out duration-300   flex items-center gap-2 cursor-pointer text-red-500 font-normal"
             >
               <MdLogout size={24} />
