@@ -1,13 +1,12 @@
 import "@/components/User/User.css";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaBell } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { HiUserCircle } from "react-icons/hi";
 import { MdInfoOutline, MdLogout, MdDarkMode } from "react-icons/md";
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { useContextHook } from "../../utils/useContextHook";
 import netlifyIdentity from "netlify-identity-widget";
 
 netlifyIdentity.init();
@@ -20,8 +19,6 @@ const User = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") !== "dark" ? "light" : "dark"
   );
-
-  const { name } = useContext(useContextHook);
 
   const toggleDarkMode = () => {
     const root = window.document.documentElement;
