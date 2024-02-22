@@ -14,7 +14,7 @@ const initMirage = () =>
       this.urlPrefix =
         import.meta.env.MODE === "development"
           ? "http://localhost:5173"
-          : "https://testnetlify--crud-mernstack.netlify.app";
+          : "https://crud-mernstack.netlify.app";
       this.get("/api/users", (schema) => schema.users.all());
       this.delete("/api/users/:id", (schema, request) =>
         schema.users.find(request.params.id).destroy()
@@ -34,8 +34,7 @@ const initMirage = () =>
         schema.users.find(request.params.id).update(body);
       });
       this.passthrough("https://unpkg.com/**/*");
-      // this.passthrough("https://crud-mernstack.netlify.app/*");
-      this.passthrough("https://testnetlify--crud-mernstack.netlify.app/*");
+      this.passthrough("https://crud-mernstack.netlify.app/*");
       this.passthrough();
     },
   });
