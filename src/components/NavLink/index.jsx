@@ -4,22 +4,22 @@ import { MdDashboard, MdPerson, MdSettings, MdLogout } from "react-icons/md";
 const navLinks = [
   {
     text: "Dashboard",
-    pathName: "/dashboard",
+    pathName: "/dashboard/home",
     icon: MdDashboard,
   },
   {
     text: "UserList",
-    pathName: "/",
+    pathName: "/dashboard",
     icon: MdPerson,
   },
   {
     text: "Settings",
-    pathName: "/settings",
+    pathName: "/dashboard/settings",
     icon: MdSettings,
   },
   {
     text: "Logout",
-    pathName: "/home",
+    pathName: "/",
     icon: MdLogout,
     colorIcon: "#ef4444",
     colorText: "text-red-500 dark:text-red-500",
