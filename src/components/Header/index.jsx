@@ -1,7 +1,6 @@
 import User from "@/components/User";
 import { useState } from "react";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
-
 import Logo from "@/components/Logo";
 import NavLink from "@/components/NavLink";
 
