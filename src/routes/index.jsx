@@ -9,29 +9,29 @@ import Home from "@/pages/Home";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "dashboard",
     element: <App />,
     children: [
       {
-        path: "/dashboard/",
+        path: "/",
         element: <UserList />,
       },
       {
-        path: "/dashboard/add",
+        path: "/Add",
         element: <CreateUser />,
       },
       {
-        path: "/dashboard/home",
+        path: "Dashboard",
         element: <Dasboard />,
       },
       {
-        path: "/dashboard/settings",
+        path: "settings",
         element: <Settings />,
       },
     ],
+  },
+  {
+    path: "home",
+    element: <Home />,
   },
 ]);
 
