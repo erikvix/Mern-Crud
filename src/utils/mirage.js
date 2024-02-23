@@ -33,9 +33,7 @@ const initMirage = () =>
         schema.users.find(request.params.id).update(body);
       });
       this.passthrough("https://unpkg.com/**/*");
-
       this.passthrough("https://crud-mernstack.netlify.app/**/*");
-
       this.passthrough("https://crud-mernstack.netlify.app/*");
       this.passthrough("http://crud-mernstack.netlify.app/*");
       this.passthrough();
