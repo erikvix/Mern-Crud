@@ -12,7 +12,7 @@ const handleLogin = () => {
   netlifyIdentity.open();
   netlifyIdentity.on("login", () => {
     netlifyIdentity.close();
-    window.location.href = "http://localhost:5173/dashboard";
+    window.location.href = "https://crud-mernstack.netlify.app";
   });
 };
 

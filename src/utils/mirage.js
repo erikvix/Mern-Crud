@@ -23,7 +23,6 @@ const initMirage = () =>
         const body = JSON.parse(request.requestBody);
         const payload = {
           id: nanoid(),
-
           ...body,
         };
         schema.users.create(payload);
