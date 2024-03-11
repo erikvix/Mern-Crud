@@ -69,11 +69,8 @@ const User = () => {
         <HiUserCircle size={32} />
       </div>
       <div className="hidden md:flex flex-col text-slate-950 dark:text-white">
-        {user ? (
-
-          <p className="paragraph">{user.email}</p>
-          ): <h3>test</h3>}
-          {/* <h3>{user.user_metadata.full_name}</h3> */}
+        <h3>{user.user_metadata.full_name}</h3>
+        {user ? <p className="paragraph">{user.email}</p> : <h3>test</h3>}
       </div>
       <div>
         <button className="bg-[transparent] text-slate-950 dark:text-white hover:border-transparent">
