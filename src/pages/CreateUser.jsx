@@ -70,7 +70,12 @@ const CreateUser = () => {
             />
           </div>
         ))}
-        <Button onClick={handleCreateUser}>Add User</Button>
+        <Button
+          className="bg-[#61dbfb] text-sm md:text-lg px-3 md:px6 py-2 rounded-3xl shadow-md border dark:border-slate-800 ease-in-out duration-300 hover:border-sky-400"
+          onClick={handleCreateUser}
+        >
+          Add User
+        </Button>
       </form>
       <Alert isOpen={isAlertOpen}>User Created!</Alert>
     </div>

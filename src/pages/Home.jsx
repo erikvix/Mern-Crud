@@ -4,15 +4,16 @@ import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
 import Button from "@/components/Button";
 import netlifyIdentity from "netlify-identity-widget";
+import { redirect } from "react-router-dom";
 
 netlifyIdentity.init();
 
 const handleLogin = () => {
-  netlifyIdentity.logout();
   netlifyIdentity.open();
+  const user = netlifyIdentity.currentUser();
   netlifyIdentity.on("login", () => {
     netlifyIdentity.close();
-    window.location.href = "https://crud-mernstack.netlify.app";
+    window.location.href = "http://crud-mernstack.netlify.app/dashboard";
   });
 };
 
