@@ -5,7 +5,7 @@ import PieChart from "../components/Charts/PieChart";
 
 function Dashboard() {
   return (
-    <div className="flex max-w-screen-xl gap-8 flex-wrap">
+    <div className="flex max-w-screen-xl border-transparent border gap-8 flex-wrap">
       <ColumnChart
         data={dummyData}
         title="Usuários cadastrados nos últimos 7 dias"

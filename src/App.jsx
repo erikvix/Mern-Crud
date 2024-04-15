@@ -23,7 +23,7 @@ function App() {
         <Sidebar />
         <div className="flex flex-col md:flex-1 md:px-8 md:py-4 md:h-screen">
           <Header />
-          <div className="md:flex h-screen items-center justify-center">
+          <div className="md:flex h-screen items-center justify-center ">
             <main className="bg-white border border-gray-100 shadow-xl dark:border-slate-800 dark:bg-slate-900 p-6 rounded-[1.5rem] mx-8">
               <Outlet />
             </main>

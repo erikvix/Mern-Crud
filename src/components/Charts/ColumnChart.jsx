@@ -24,7 +24,6 @@ function ColumnChart({ title = "Usuários ativos nos últimos 30 dias", data }) 
             foreColor: "#64748b",
             type: "bar",
           },
-
           legend: {
             show: false,
           },

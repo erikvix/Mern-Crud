@@ -20,7 +20,6 @@ function PieChart({ title = "Requisições na API", data }) {
             foreColor: "#64748b",
             type: "donut",
           },
-
           legend: {
             show: false,
           },
@@ -29,6 +28,7 @@ function PieChart({ title = "Requisições na API", data }) {
           },
           stroke: {
             show: false,
+            curve: "smooth",
           },
           xaxis: {
             type: "category",
