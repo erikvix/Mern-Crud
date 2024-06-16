@@ -23,7 +23,7 @@ Você pode acessar o projeto neste link: https://crud-mernstack.netlify.app
 - Autenticação
 - API Falsa
 
-Clone o repositório:
+## Clone o repositório:
 
 ```sh
 git clone https://github.com/erikvix/mern-front
