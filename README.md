@@ -1,4 +1,4 @@
-# Projeto MERN CRUD com Vite
+# Projeto MERN CRUD
 Este projeto é uma aplicação CRUD (Create, Read, Update, Delete) para manipulação de usuários, desenvolvida utilizando o MERN Stack (MongoDB, Express, React e Node.js) e Vite para otimização do build. A aplicação também conta com autenticação via Netlify Identity e uma API falsa criada com MirageJS para simulação de dados de uma API.
 
 Você pode acessar o projeto neste link: https://crud-mernstack.netlify.app
