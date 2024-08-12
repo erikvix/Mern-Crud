@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@/components/Button";
+import { captureException } from "@sentry/react";
 
 export default function Settings() {
   return (
@@ -8,6 +9,7 @@ export default function Settings() {
         <h3>Settings</h3>
         <Button
           onClick={() => {
+            captureException(new Error("Not Implemented"));
             throw new Error("Not Implemented");
           }}
         >
