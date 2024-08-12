@@ -8,6 +8,7 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 import EditModal from "@/components/Modal/EditModal.jsx";
 import Modal from "@/components/Modal";
+import { captureException } from "@sentry/react";
 
 export default function Table() {
   const [users, setUsers] = useState([]);
@@ -19,12 +20,13 @@ export default function Table() {
   const [inputValue, setInputValue] = useState("");
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
-  const handleGetUsers = () => {
-    return fetch(`/api/users`)
+  const handleGetUsers = async () => {
+    return await fetch(`/api/users`)
       .then((response) => response.json())
       .then(({ users }) => setUsers(users))
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        captureException(error);
+        console.error(error);
       });
   };
   const initialForm = {

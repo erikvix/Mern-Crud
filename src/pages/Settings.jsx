@@ -9,8 +9,7 @@ export default function Settings() {
         <h3>Settings</h3>
         <Button
           onClick={() => {
-            captureException(new Error("Not Implemented"));
-            throw new Error("Not Implemented");
+            captureException(new Error("Settings.Button.Error"));
           }}
         >
           throw error
