@@ -3,7 +3,6 @@ import ReactApexChart from "react-apexcharts";
 import { dummyData } from "../../utils/date";
 
 function ColumnChart({ title = "Usuários ativos nos últimos 30 dias", data }) {
-  console.log(dummyData);
   const chartData = data;
 
   return (

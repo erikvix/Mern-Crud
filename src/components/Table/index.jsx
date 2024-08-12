@@ -76,7 +76,8 @@ export default function Table() {
           handleGetUsers();
         })
         .catch((err) => {
-          console.error(err);
+          captureException(err);
+          captureMessage(err.message);
         });
       setIsModalOpen(false);
       setIsAlertOpen(true);
@@ -85,7 +86,7 @@ export default function Table() {
         setEditIsModalOpen(false);
       }, 2000);
     } else {
-      console.log("sem usuario");
+      captureMessage("Sem usuário para editar");
     }
   };
 
@@ -97,7 +98,8 @@ export default function Table() {
           handleGetUsers();
         })
         .catch((err) => {
-          console.error(err);
+          captureException(err);
+          captureMessage(err.message);
         });
     }
   };
