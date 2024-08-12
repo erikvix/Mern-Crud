@@ -8,7 +8,7 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 import EditModal from "@/components/Modal/EditModal.jsx";
 import Modal from "@/components/Modal";
-import { captureException } from "@sentry/react";
+import { captureException, captureMessage } from "@sentry/react";
 
 export default function Table() {
   const [users, setUsers] = useState([]);
@@ -26,7 +26,7 @@ export default function Table() {
       .then(({ users }) => setUsers(users))
       .catch((error) => {
         captureException(error);
-        console.error(error);
+        captureMessage(error.message);
       });
   };
   const initialForm = {
