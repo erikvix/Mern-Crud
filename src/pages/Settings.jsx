@@ -7,13 +7,6 @@ export default function Settings() {
     <div className="">
       <div>
         <h3>Settings</h3>
-        <Button
-          onClick={() => {
-            captureException(new Error("Settings.Button.Error"));
-          }}
-        >
-          throw error
-        </Button>
       </div>
     </div>
   );
