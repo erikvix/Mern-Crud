@@ -8,6 +8,7 @@ import Icon from "@/components/Icon";
 import Loading from "@/components/Loading";
 import EditModal from "@/components/Modal/EditModal.jsx";
 import Modal from "@/components/Modal";
+import { captureException, captureMessage } from "@sentry/react";
 
 export default function Table() {
   const [users, setUsers] = useState([]);
@@ -19,12 +20,13 @@ export default function Table() {
   const [inputValue, setInputValue] = useState("");
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
-  const handleGetUsers = () => {
-    return fetch(`/api/users`)
+  const handleGetUsers = async () => {
+    return await fetch(`/api/users`)
       .then((response) => response.json())
       .then(({ users }) => setUsers(users))
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        captureException(error);
+        captureMessage(error.message);
       });
   };
   const initialForm = {
@@ -74,7 +76,8 @@ export default function Table() {
           handleGetUsers();
         })
         .catch((err) => {
-          console.error(err);
+          captureException(err);
+          captureMessage(err.message);
         });
       setIsModalOpen(false);
       setIsAlertOpen(true);
@@ -83,7 +86,7 @@ export default function Table() {
         setEditIsModalOpen(false);
       }, 2000);
     } else {
-      console.log("sem usuario");
+      captureMessage("Sem usuário para editar");
     }
   };
 
@@ -95,7 +98,8 @@ export default function Table() {
           handleGetUsers();
         })
         .catch((err) => {
-          console.error(err);
+          captureException(err);
+          captureMessage(err.message);
         });
     }
   };

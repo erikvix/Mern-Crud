@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "@/components/Button";
+import { captureException } from "@sentry/react";
 
 export default function Settings() {
   return (

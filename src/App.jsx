@@ -12,7 +12,6 @@ function App() {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       root.classList.add("dark");
-      console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
     } else {
       root.classList.remove("dark");
     }
